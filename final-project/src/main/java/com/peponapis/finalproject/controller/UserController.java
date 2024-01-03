@@ -1,17 +1,12 @@
 package com.peponapis.finalproject.controller;
-
-
+import com.peponapis.finalproject.model.User;
 import com.peponapis.finalproject.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/users")
 public class UserController {
-    //RestController - end points
-    //Controllers - pages
 
     @Autowired
     private final UserService userService;
@@ -20,12 +15,11 @@ public class UserController {
         this.userService = userService;
     }
     @PostMapping("/register")
-    public String userRegister(){
-        return null;
+    public User userRegister(@RequestBody User user){
+        return userService.saveUser(user);
     }
     @PostMapping("/login")
-    public String userLogin(){
+    public User userLogin(User user){
         return null;
     }
-
 }
