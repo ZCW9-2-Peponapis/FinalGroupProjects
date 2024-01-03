@@ -11,8 +11,8 @@ import java.util.List;
 /**
  * Document controller. Endpoints for the possible document operations are here.
  */
-@Controller
-@RequestMapping("document")
+@RestController
+@RequestMapping("/document")
 public class DocumentController {
     private DocumentService documentService;
 
@@ -25,7 +25,7 @@ public class DocumentController {
      *
      * @return all documents in the db
      */
-    @GetMapping("/view/")
+    @GetMapping("/getAll")
     public List<Document> viewAllDocuments(){
         return this.documentService.getAllDocuments();
     }
@@ -46,7 +46,7 @@ public class DocumentController {
      * @return Document with updated values
      */
     @PatchMapping("/update")
-    public Document saveDocument(Document document){
+    public Document saveDocument(@RequestBody Document document){
         return this.documentService.saveDocument(document);
     }
 
@@ -56,7 +56,7 @@ public class DocumentController {
      * @return document that was added to db
      */
     @PostMapping("/create")
-    public Document creatDocument(Document document){
+    public Document creatDocument(@RequestBody Document document){
         return this.documentService.saveDocument(document);
     }
 

@@ -1,9 +1,6 @@
 package com.peponapis.finalproject.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
@@ -20,7 +17,12 @@ public class Document {
     String body; // the text within the document
     Date creationDate; // date that document is created
     Date modificationDate; // date that document is modified
+    @ManyToOne
     int userId; // id of user who created the document
+
+    public Document(){
+
+    }
 
     public Document(String title, String body, int userId){
         this.title = title;
