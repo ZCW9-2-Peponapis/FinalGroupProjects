@@ -1,4 +1,7 @@
 package com.peponapis.finalproject.repository;
 
-public interface DocumentRepo {
+import com.peponapis.finalproject.model.Document;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface DocumentRepo extends JpaRepository<Document, Integer> {
 }
