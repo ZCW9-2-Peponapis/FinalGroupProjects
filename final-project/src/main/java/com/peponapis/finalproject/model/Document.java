@@ -17,7 +17,6 @@ public class Document {
     String body; // the text within the document
     Date creationDate; // date that document is created
     Date modificationDate; // date that document is modified
-    @ManyToOne
     int userId; // id of user who created the document
 
     public Document(){
