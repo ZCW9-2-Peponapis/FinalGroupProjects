@@ -29,5 +29,8 @@ public class UserService {
     }
 //    public User findByUserNameAndPassword(User info){
 //        return userRepo.findByUserNameAndPassword(info);
-//    }
+//    }  Planning to implement later *** Need to see if controller is needed for this method
+    public User findByPassword(String password) {
+        return userRepo.findByPassword(password);
+    }
 }

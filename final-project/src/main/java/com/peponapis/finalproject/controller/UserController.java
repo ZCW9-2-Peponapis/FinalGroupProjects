@@ -19,7 +19,11 @@ public class UserController {
         return userService.saveUser(user);
     }
     @PostMapping("/login")
-    public User userLogin(User user){
-        return null;
+    public User userLogin(@RequestBody User user){
+        if((userService.findByUserName(user.getUserName()).equals(user.getUserName()))
+                && (userService.findByPassword(user.getPassword()).equals(user.getPassword()))){
+            return user;
+        }
+            return null;  // Login does not exist for user.
     }
 }
