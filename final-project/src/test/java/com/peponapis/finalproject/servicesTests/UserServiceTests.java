@@ -1,2 +1,4 @@
-package com.peponapis.finalproject.servicesTests;public class UserServiceTests {
+package com.peponapis.finalproject.servicesTests;
+
+public class UserServiceTests {
 }
