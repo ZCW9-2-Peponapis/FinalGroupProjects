@@ -7,21 +7,26 @@ import jakarta.persistence.Id;
 
 import java.util.Date;
 
+/**
+ * Document entity used to model all the information for the documents in the program.
+ */
 @Entity
 public class Document {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int id;
-    String title;
-    String body;
-    Date creationDate;
-    Date modificationDate;
+    int id; // unique id for the document
+    String title; // name/title of the document
+    String body; // the text within the document
+    Date creationDate; // date that document is created
+    Date modificationDate; // date that document is modified
     int userId; // id of user who created the document
 
     public Document(String title, String body, int userId){
         this.title = title;
         this.body = body;
+        // the dates will be automatically created upon
+        // call to constructor
         this.creationDate = new Date();
         this.modificationDate = new Date();
         this.userId = userId;
