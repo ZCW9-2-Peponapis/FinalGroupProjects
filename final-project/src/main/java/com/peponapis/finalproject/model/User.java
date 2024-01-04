@@ -19,6 +19,37 @@ public class User { //implement UserDetails (later on for user auth)
     private String name;
     private String userName;
     private String password;
+    @OneToMany
+    private List<Document> documents;
+    @OneToMany
+    private List<Folder> folders;
+
+    public User() {
+    }
+
+    public User(int userId) {
+        this.userId = userId;
+    }
+
+    public User(String userName, String password) {
+        this.userName = userName;
+        this.password = password;
+    }
+
+    public User(int userId, String name, String userName, String password, List<Document> documents, List<Folder> folders) {
+        this.userId = userId;
+        this.name = name;
+        this.userName = userName;
+        this.password = password;
+        this.documents = documents;
+        this.folders = folders;
+    }
+
+    public User(String name, String userName, String password) {
+        this.name = name;
+        this.userName = userName;
+        this.password = password;
+    }
 
     public int getUserId() {
         return userId;
@@ -52,9 +83,19 @@ public class User { //implement UserDetails (later on for user auth)
         this.password = password;
     }
 
-    //    @OneToMany
-//    private List<Document> documents;
-//    @OneToMany
-//    private List<Folder> folders;
+    public List<Document> getDocuments() {
+        return documents;
+    }
 
+    public void setDocuments(List<Document> documents) {
+        this.documents = documents;
+    }
+
+    public List<Folder> getFolders() {
+        return folders;
+    }
+
+    public void setFolders(List<Folder> folders) {
+        this.folders = folders;
+    }
 }
