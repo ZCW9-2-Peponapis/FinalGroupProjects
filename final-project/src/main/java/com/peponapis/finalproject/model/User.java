@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import jdk.jfr.DataAmount;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -30,28 +31,12 @@ public class User { //implement UserDetails (later on for user auth)
     public User() {
     }
 
-    public User(int userId) {
-        this.userId = userId;
-    }
-
-    public User(String userName, String password) {
-        this.userName = userName;
-        this.password = password;
-    }
-
-    public User(int userId, String name, String userName, String password, List<Document> documents, List<Folder> folders) {
-        this.userId = userId;
-        this.name = name;
-        this.userName = userName;
-        this.password = password;
-        this.documents = documents;
-        this.folders = folders;
-    }
-
     public User(String name, String userName, String password) {
         this.name = name;
         this.userName = userName;
         this.password = password;
+        this.documents = new ArrayList<>();
+        this.folders = new ArrayList<>();
     }
 
     public int getUserId() {
