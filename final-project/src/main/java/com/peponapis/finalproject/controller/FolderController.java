@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping("/Folder")
 public class FolderController {
 
     FolderService folderService;
@@ -22,20 +22,20 @@ public class FolderController {
     }
 
 
-@GetMapping
+@GetMapping("/view")
     public List<Document> viewDocs(int folderId){
        return this.folderService.getDocsInFolder(folderId);
     }
-@GetMapping
+@GetMapping("/create")
     public Folder createFolder(Folder folder){
       return this.folderService.saveFolder(folder) ;
     }
-@GetMapping
+@GetMapping("/delete")
     public void deleteFolder(int folderId){
       folderService.deleteFolder(folderId);
     }
 
-@GetMapping
+@GetMapping("/update")
     public Folder updateFolder(Folder folder){
      return folderService.saveFolder(folder);
     }
