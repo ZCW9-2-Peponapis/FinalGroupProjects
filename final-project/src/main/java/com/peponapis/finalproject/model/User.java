@@ -20,10 +20,10 @@ public class User { //implement UserDetails (later on for user auth)
     private String name;
     private String userName;
     private String password;
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "userDocument")
     @JsonManagedReference
     private List<Document> documents;
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "userFolder")
     @JsonManagedReference
     private List<Folder> folders;
 
