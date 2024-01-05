@@ -1,6 +1,7 @@
 package com.peponapis.finalproject.model;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jdk.jfr.DataAmount;
 import lombok.Data;
@@ -19,9 +20,11 @@ public class User { //implement UserDetails (later on for user auth)
     private String name;
     private String userName;
     private String password;
-    @OneToMany
+    @OneToMany(mappedBy = "user")
+    @JsonManagedReference
     private List<Document> documents;
-    @OneToMany
+    @OneToMany(mappedBy = "user")
+    @JsonManagedReference
     private List<Folder> folders;
 
     public User() {
