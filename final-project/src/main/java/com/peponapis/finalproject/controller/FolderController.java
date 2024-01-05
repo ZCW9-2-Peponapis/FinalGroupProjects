@@ -5,9 +5,7 @@ import com.peponapis.finalproject.model.Folder;
 import com.peponapis.finalproject.service.FolderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,21 +20,21 @@ public class FolderController {
     }
 
 
-@GetMapping("/view")
-    public List<Document> viewDocs(int folderId){
+@GetMapping("/view{Id}")
+    public List<Document> viewDocs(@PathVariable("Id") int folderId){
        return this.folderService.getDocsInFolder(folderId);
     }
 @GetMapping("/create")
-    public Folder createFolder(Folder folder){
+    public Folder createFolder(@RequestBody Folder folder){
       return this.folderService.saveFolder(folder) ;
     }
-@GetMapping("/delete")
-    public void deleteFolder(int folderId){
+@GetMapping("/delete{Id}")
+    public void deleteFolder(@PathVariable("Id") int folderId){
       folderService.deleteFolder(folderId);
     }
 
 @GetMapping("/update")
-    public Folder updateFolder(Folder folder){
+    public Folder updateFolder(@RequestBody Folder folder){
      return folderService.saveFolder(folder);
     }
 }
