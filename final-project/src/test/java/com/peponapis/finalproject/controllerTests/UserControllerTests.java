@@ -33,7 +33,7 @@ public class UserControllerTests {
 
     @Test
     public void registerUserTest() throws Exception {
-        when(userService.findByUserName("userTest")).thenReturn( new User());
+        when(userService.findByUserName("userTest")).thenReturn(Optional.of(new User()));
         when(userService.findByPassword("testPassword")).thenReturn(new User());
 
         mockMvc.perform(MockMvcRequestBuilders.post("/users/register")
@@ -43,7 +43,7 @@ public class UserControllerTests {
 
     @Test
     public void loginUserTest() throws Exception {
-        when(userService.findByUserName("userTest")).thenReturn( new User());
+        when(userService.findByUserName("userTest")).thenReturn(Optional.of(new User()));
         when(userService.findByPassword("testPassword")).thenReturn(new User());
 
         mockMvc.perform(MockMvcRequestBuilders.post("/users/login")

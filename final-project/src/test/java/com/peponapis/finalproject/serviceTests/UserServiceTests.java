@@ -9,11 +9,13 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class UserServiceTest {
+class UserServiceTests {
 
     @Mock
     private UserRepo userRepo;
@@ -54,11 +56,11 @@ class UserServiceTest {
     void testFindByUserName() {
         // Arrange
         String username = "johndoe";
-        User expectedUser = new User("John Doe", username, "password");
+        Optional<User> expectedUser = Optional.of(new User("John Doe", username, "password"));
         when(userRepo.findByUserName(username)).thenReturn(expectedUser);
 
         // Act
-        User foundUser = userService.findByUserName(username);
+        Optional<User> foundUser = userService.findByUserName(username);
 
         // Assert
         assertEquals(expectedUser, foundUser);

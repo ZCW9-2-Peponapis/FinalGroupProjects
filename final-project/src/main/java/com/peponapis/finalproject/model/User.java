@@ -3,30 +3,23 @@ package com.peponapis.finalproject.model;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import jdk.jfr.DataAmount;
 import lombok.Data;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
+
 
 @Entity
 @Data
-public class User { //implement UserDetails (later on for user auth)
-
-
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int userId;
     private String name;
     private String userName;
     private String password;
-    @OneToMany(mappedBy = "userDocument")
-    @JsonManagedReference
-    private List<Document> documents;
-    @OneToMany(mappedBy = "userFolder")
-    @JsonManagedReference
-    private List<Folder> folders;
+//    private List<Document> documents;
+//    private List<Folder> folders;
 
     public User() {
     }
@@ -35,14 +28,13 @@ public class User { //implement UserDetails (later on for user auth)
         this.name = name;
         this.userName = userName;
         this.password = password;
-        this.documents = new ArrayList<>();
-        this.folders = new ArrayList<>();
+//        this.documents = new ArrayList<>();
+//        this.folders = new ArrayList<>();
     }
 
     public int getUserId() {
         return userId;
     }
-
     public void setUserId(int userId) {
         this.userId = userId;
     }
@@ -63,6 +55,7 @@ public class User { //implement UserDetails (later on for user auth)
         this.userName = userName;
     }
 
+
     public String getPassword() {
         return password;
     }
@@ -71,19 +64,19 @@ public class User { //implement UserDetails (later on for user auth)
         this.password = password;
     }
 
-    public List<Document> getDocuments() {
-        return documents;
-    }
-
-    public void setDocuments(List<Document> documents) {
-        this.documents = documents;
-    }
-
-    public List<Folder> getFolders() {
-        return folders;
-    }
-
-    public void setFolders(List<Folder> folders) {
-        this.folders = folders;
-    }
+//    public List<Document> getDocuments() {
+//        return documents;
+//    }
+//
+//    public void setDocuments(List<Document> documents) {
+//        this.documents = documents;
+//    }
+//
+//    public List<Folder> getFolders() {
+//        return folders;
+//    }
+//
+//    public void setFolders(List<Folder> folders) {
+//        this.folders = folders;
+//    }
 }
