@@ -23,8 +23,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -102,7 +101,7 @@ public class DocumentControllerTests {
         when(this.documentService.saveDocument(document)).thenReturn(document);
 
         // assert
-        this.mockMvc.perform(patch("/document/update")
+        this.mockMvc.perform(post("/document/create")
                         .contentType("application/json")
                         .content(requestBody))
                 .andExpect(status().isOk());
