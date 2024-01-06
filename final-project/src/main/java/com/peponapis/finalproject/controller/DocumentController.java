@@ -3,7 +3,6 @@ package com.peponapis.finalproject.controller;
 import com.peponapis.finalproject.model.Document;
 import com.peponapis.finalproject.service.DocumentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -68,5 +67,10 @@ public class DocumentController {
     @GetMapping("/search")
     public List<Document> searchDocuments(@RequestParam(value = "filter") String filter){
         return this.documentService.searchDocuments(filter);
+    }
+
+    @GetMapping("/allByUser")
+    public List<Document> getAllDocumentsByUserId(@RequestParam(value = "userId") int userId){
+        return this.documentService.getAllDocumentsByUser(userId);
     }
 }

@@ -10,12 +10,20 @@ import java.util.List;
 @Repository
 public interface DocumentRepo extends JpaRepository<Document, Integer> {
 
-    // Don't know if this will actually work yet, but the query
-    // will look something like this.
+    // ?1 means first parameter
+
     /**
      * @param filter user-inputted search-term to filter documents by
      * @return a list of documents containing the search-term
      */
     @Query("SELECT d FROM Document d WHERE d.title LIKE %?1% OR d.body LIKE %?1%")
     List<Document> searchDocuments(String filter);
+
+    /**
+     *
+     * @param userId the id of the user
+     * @return all documents created by that user
+     */
+    @Query("SELECT d FROM Document d WHERE d.user_id = ?1")
+    List<Document> getAllDocumentsByUserId(int userId);
 }

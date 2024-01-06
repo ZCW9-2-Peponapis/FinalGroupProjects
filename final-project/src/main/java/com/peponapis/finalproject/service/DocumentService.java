@@ -1,10 +1,12 @@
 package com.peponapis.finalproject.service;
 
 import com.peponapis.finalproject.model.Document;
+import com.peponapis.finalproject.model.User;
 import com.peponapis.finalproject.repository.DocumentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.print.Doc;
 import java.util.List;
 
 /**
@@ -21,7 +23,7 @@ public class DocumentService {
 
     /**
      *
-     * @param document document to create or update
+     * @param document document to update
      * @return the new document
      */
     public Document saveDocument(Document document){
@@ -60,5 +62,9 @@ public class DocumentService {
      */
     public List<Document> searchDocuments(String filter){
         return this.documentRepo.searchDocuments(filter);
+    }
+
+    public List<Document> getAllDocumentsByUser(int userId){
+        return this.documentRepo.getAllDocumentsByUserId(userId);
     }
 }
