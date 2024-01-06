@@ -124,4 +124,21 @@ public class DocumentControllerTests {
                 .andExpect(content().contentType("application/json"));
     }
 
+//    @Test
+//    public void testDocumentControllerGetAllByUser() throws Exception {
+//        // given
+//        List<Document> documentList = Arrays.asList(new Document("Test1", "Body1", 123), new Document("Test2", "Body2", 123));
+//        int userId = 123;
+//
+//        // when
+//        when(this.documentService.getAllDocumentsByUser(userId)).thenReturn(documentList);
+//
+//        // assert
+//        this.mockMvc.perform(get("/document/allByUser")
+//                .param("userId", String.valueOf(userId)))
+//                .andDo(print())
+//                .andExpect(status().isOk());
+//
+//    }
+
 }

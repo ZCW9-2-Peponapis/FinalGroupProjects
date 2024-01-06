@@ -23,7 +23,12 @@ public interface DocumentRepo extends JpaRepository<Document, Integer> {
      *
      * @param userId the id of the user
      * @return all documents created by that user
+     *
+     * THIS WILL PROBABLY BE IN USER, SINCE USER HAS
+     * LIST OF DOCS... giving me grief because Document
+     * model doesn't actually have userId, it has user.
+     *
      */
-    @Query("SELECT d FROM Document d WHERE d.user_id = ?1")
-    List<Document> getAllDocumentsByUserId(int userId);
+//    @Query("SELECT d FROM Document d WHERE d.userId = ?1")
+//    List<Document> getAllDocumentsByUserId(int userId);
 }

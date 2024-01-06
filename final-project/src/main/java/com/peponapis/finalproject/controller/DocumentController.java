@@ -69,8 +69,9 @@ public class DocumentController {
         return this.documentService.searchDocuments(filter);
     }
 
-    @GetMapping("/allByUser")
-    public List<Document> getAllDocumentsByUserId(@RequestParam(value = "userId") int userId){
-        return this.documentService.getAllDocumentsByUser(userId);
-    }
+//    taking this out... DocRepo for explanation
+//    @GetMapping("/allByUser")
+//    public List<Document> getAllDocumentsByUserId(@RequestParam(value = "userId") int userId){
+//        return this.documentService.getAllDocumentsByUser(userId);
+//    }
 }

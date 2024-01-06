@@ -24,8 +24,8 @@ public class Document {
     @JsonBackReference
     User user; // user who created the document
 
-    @OneToOne
-    Folder folder; // folder the document is in
+    //@OneToOne
+    //Folder folder; // folder the document is in
 
     /**
      *
@@ -95,11 +95,11 @@ public class Document {
         this.user = user;
     }
 
-    public Folder getFolder() {
-        return folder;
-    }
-
-    public void setFolder(Folder folder) {
-        this.folder = folder;
-    }
+//    public Folder getFolder() {
+//        return folder;
+//    }
+//
+//    public void setFolder(Folder folder) {
+//        this.folder = folder;
+//    }
 }

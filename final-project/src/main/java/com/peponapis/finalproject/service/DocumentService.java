@@ -64,7 +64,8 @@ public class DocumentService {
         return this.documentRepo.searchDocuments(filter);
     }
 
-    public List<Document> getAllDocumentsByUser(int userId){
-        return this.documentRepo.getAllDocumentsByUserId(userId);
-    }
+    // Taking this out... DocRepo for explanation
+//    public List<Document> getAllDocumentsByUser(int userId){
+//        return this.documentRepo.getAllDocumentsByUserId(userId);
+//    }
 }

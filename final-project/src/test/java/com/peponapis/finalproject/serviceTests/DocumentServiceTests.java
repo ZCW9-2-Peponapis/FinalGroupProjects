@@ -93,4 +93,17 @@ public class DocumentServiceTests {
         Assertions.assertThat(this.documentService.searchDocuments(filter)).isEqualTo(list);
     }
 
+//    @Test
+//    public void testDocumentServiceGetAllByUser(){
+//        // given
+//        List<Document> list = Mockito.mock();
+//        int userId = 1;
+//
+//        // when
+//        when(this.documentRepo.getAllDocumentsByUserId(userId)).thenReturn(list);
+//
+//        // assert
+//        Assertions.assertThat(this.documentService.getAllDocumentsByUser(userId)).isEqualTo(list);
+//    }
+
 }
