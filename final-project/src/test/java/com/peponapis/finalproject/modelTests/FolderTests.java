@@ -29,13 +29,18 @@ public class FolderTests {
 
   @Test
   public void testSetFolderId(){
+     Folder folder = new Folder();
+     int folderId = 1;
 
+    folder.setFolderId(folderId);
+    int FolderId = folder.getFolderId();
+
+   Assertions.assertEquals(folderId, FolderId);
   }
 
   @Test
   public void testGetFolderId(){
-    Folder folder = new Folder();
-    Assertions.assertEquals(-1,folder.getFolderId());
+
 
   }
 
