@@ -1,5 +1,6 @@
 package com.peponapis.finalproject.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -17,10 +18,25 @@ public class Document {
     String body; // the text within the document
     Date creationDate; // date that document is created
     Date modificationDate; // date that document is modified
-    int userId; // id of user who created the document
+
+    @ManyToOne
+    @JoinColumn(name="user_id")
+    @JsonBackReference
+    User user; // user who created the document
+
+    @OneToOne
+    Folder folder; // folder the document is in
+
+    /**
+     *
+     * TODO: ADD A METHOD/ENDPOINT FOR GETTING ALL DOCUMENTS CREATED BY A USER
+     */
+
 
     public Document(){
-
+        this.id = -1;
+        this.creationDate = new Date();
+        this.modificationDate = new Date();
     }
 
     public Document(String title, String body, int userId){
@@ -30,16 +46,14 @@ public class Document {
         // call to constructor
         this.creationDate = new Date();
         this.modificationDate = new Date();
-        this.userId = userId;
+        this.user = user;
     }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    // public void setId(int id) { this.id = id;}
 
     public String getTitle() {
         return title;
@@ -61,9 +75,9 @@ public class Document {
         return creationDate;
     }
 
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
-    }
+    // public void setCreationDate(Date creationDate) {
+//        this.creationDate = creationDate;
+//    }
 
     public Date getModificationDate() {
         return modificationDate;
@@ -73,11 +87,19 @@ public class Document {
         this.modificationDate = modificationDate;
     }
 
-    public int getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Folder getFolder() {
+        return folder;
+    }
+
+    public void setFolder(Folder folder) {
+        this.folder = folder;
     }
 }
