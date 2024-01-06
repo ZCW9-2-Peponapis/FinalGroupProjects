@@ -20,10 +20,14 @@ public class Folder {
     @OneToMany
     private List<Document>docs;
 
-    public Folder(String title, Date creationDate, Date modificationDate, int userId){
+    public Folder(){
 
-        this.creationDate = creationDate;
-        this.modificationDate = modificationDate;
+    }
+
+    public Folder(String title, int userId){
+
+        this.creationDate =  new Date();
+        this.modificationDate = new Date();
         this.userId = userId;
         this.title= title;
         this.docs = new ArrayList<>();
