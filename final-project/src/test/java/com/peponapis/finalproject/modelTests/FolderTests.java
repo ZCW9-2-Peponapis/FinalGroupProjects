@@ -43,18 +43,26 @@ public class FolderTests {
   @Test
   public void testGetFolderId(){
     Folder folder = new Folder();
+    int folderId = 1;
 
+    folder.setFolderId(folderId);
+    Integer FolderId = folder.getFolderId();
 
-
-    Assertions.assertEquals();
-
-
+    Assertions.assertEquals(folderId, FolderId);
   }
+
 
   @Test
-  public void testFolderGetTitle(){
+  public void testFolderGetTitle() {
+    Folder folder = new Folder();
+    String title = "title";
 
+    folder.setTitle(title);
+    String actualTitle = folder.getTitle();
+
+    Assertions.assertEquals(title, actualTitle);
   }
+
 
   @Test
   public void testFolderSetTitle(){
@@ -105,11 +113,12 @@ public class FolderTests {
 
   @Test
   public void testFolderGetUserId() {
+    Folder folder = new Folder();
   }
 
   @Test
   public void testFolderSetUserId(){
-   Folder folder = new Folder();
+
 
 
   }
