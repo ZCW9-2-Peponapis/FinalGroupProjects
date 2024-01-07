@@ -6,7 +6,9 @@ import com.peponapis.finalproject.model.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class FolderTests {
 
@@ -40,7 +42,12 @@ public class FolderTests {
 
   @Test
   public void testGetFolderId(){
-   Folder folder = new Folder();
+    Folder folder = new Folder();
+
+
+
+    Assertions.assertEquals();
+
 
   }
 
@@ -73,12 +80,15 @@ public class FolderTests {
 
   @Test
   public void testFolderGetCreationDate(){
+     Folder folder = new Folder();
 
+     Assertions.assertNotNull(folder.getCreationDate());
   }
 
   @Test
   public void testFolderGetModification(){
-
+   Folder folder = new Folder();
+   Assertions.assertNotNull(folder.getModificationDate());
 
   }
 
@@ -99,12 +109,14 @@ public class FolderTests {
 
   @Test
   public void testFolderSetUserId(){
+   Folder folder = new Folder();
 
 
   }
 
   @Test
   public void  testFolderGetDocs(){
+
 
   }
 

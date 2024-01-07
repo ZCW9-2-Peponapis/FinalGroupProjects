@@ -20,9 +20,7 @@ public class Folder {
     @OneToMany
     private List<Document>docs;
 
-    public Folder(){
 
-    }
 
     public Folder(String title, int userId){
 
@@ -31,6 +29,11 @@ public class Folder {
         this.userId = userId;
         this.title= title;
         this.docs = new ArrayList<>();
+    }
+
+    public Folder(){
+         creationDate = new Date();
+         modificationDate = new Date();
     }
 
     public int getFolderId() {
