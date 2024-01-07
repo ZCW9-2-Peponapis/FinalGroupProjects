@@ -16,17 +16,17 @@ public class Folder {
     private Date creationDate;
     private Date modificationDate;
     @ManyToOne
-    private int userId;
+    private User user;
     @OneToMany
     private List<Document>docs;
 
 
 
-    public Folder(String title, int userId){
+    public Folder(String title){
 
         this.creationDate =  new Date();
         this.modificationDate = new Date();
-        this.userId = userId;
+        //this.userId = userId;
         this.title= title;
         this.docs = new ArrayList<>();
     }
@@ -68,13 +68,13 @@ public class Folder {
         this.modificationDate = modificationDate;
     }
 
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
+//    public int getUserId() {
+//        return userId;
+//    }
+//
+//    public void setUserId(int userId) {
+//        this.userId = userId;
+//    }
 
     public List<Document> getDocs() {
         return docs;

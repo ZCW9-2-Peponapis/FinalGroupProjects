@@ -24,8 +24,8 @@ public class Document {
     @JsonBackReference
     User user; // user who created the document
 
-    //@OneToOne
-    //Folder folder; // folder the document is in
+    @OneToOne
+    Folder folder; // folder the document is in
 
     /**
      *

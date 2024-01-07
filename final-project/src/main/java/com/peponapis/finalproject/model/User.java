@@ -22,8 +22,11 @@ public class User {
     private String userName; // username for the user (login info)
     private String password; // password for the user (login info)
 
-//    private List<Document> documents;
-//    private List<Folder> folders;
+    @OneToMany
+    private List<Document> documents;
+
+    @OneToMany
+    private List<Folder> folders;
 
     // Commented out due to not having other entities and other getters/setters
 
@@ -69,19 +72,19 @@ public class User {
         this.password = password;
     }
 
-//    public List<Document> getDocuments() {
-//        return documents;
-//    }
-//
-//    public void setDocuments(List<Document> documents) {
-//        this.documents = documents;
-//    }
-//
-//    public List<Folder> getFolders() {
-//        return folders;
-//    }
-//
-//    public void setFolders(List<Folder> folders) {
-//        this.folders = folders;
-//    }
+    public List<Document> getDocuments() {
+        return documents;
+    }
+
+    public void setDocuments(List<Document> documents) {
+        this.documents = documents;
+    }
+
+    public List<Folder> getFolders() {
+        return folders;
+    }
+
+    public void setFolders(List<Folder> folders) {
+        this.folders = folders;
+    }
 }
