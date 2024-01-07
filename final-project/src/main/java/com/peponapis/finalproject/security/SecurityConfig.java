@@ -6,6 +6,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 
+/**
+ * Security configuration for user passwords encryption in database
+ */
 @Configuration
 public class SecurityConfig {
     @Bean
