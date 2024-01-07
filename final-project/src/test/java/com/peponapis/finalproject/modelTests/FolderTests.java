@@ -40,7 +40,7 @@ public class FolderTests {
 
   @Test
   public void testGetFolderId(){
-
+   Folder folder = new Folder();
 
   }
 
@@ -64,7 +64,11 @@ public class FolderTests {
 
   @Test
   public void testFolderSetCreationDate(){
+    Folder folder = new Folder();
+    Date date = new Date();
 
+    folder.setCreationDate(date);
+    Assertions.assertEquals(date, folder.getCreationDate());
   }
 
   @Test
@@ -74,7 +78,6 @@ public class FolderTests {
 
   @Test
   public void testFolderGetModification(){
-
 
 
   }
