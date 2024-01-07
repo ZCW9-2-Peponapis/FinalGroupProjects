@@ -8,6 +8,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Optional;
 
@@ -24,7 +25,7 @@ class UserServiceTests {
     private UserService userService;
 
     @Test
-    void testSaveUser() {
+    void testSaveUser() {  // Need to fix test 1/7/2024, methods changed with user auth
         // Arrange
         User userToSave = new User("John Doe", "johndoe", "password");
         when(userRepo.save(userToSave)).thenReturn(userToSave);
@@ -68,7 +69,7 @@ class UserServiceTests {
     }
 
     @Test
-    void testFindByPassword() {
+    void testFindByPassword() {  // Need to fix test 1/7/2024, methods change due to user auth
         // Arrange
         String password = "password";
         User expectedUser = new User("John Doe", "johndoe", password);

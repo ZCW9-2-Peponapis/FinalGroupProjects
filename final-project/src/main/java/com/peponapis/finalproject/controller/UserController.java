@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.naming.AuthenticationException;
 
+/**
+ * User Controller. End points for user registration and user login with authentication
+ */
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -18,6 +21,13 @@ public class UserController {
     public UserController(UserService userService){
         this.userService = userService;
     }
+
+
+    /**
+     *
+     * @param user new user to add to db
+     * @return user that was added to db
+     */
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@RequestBody User user) {
         try {
@@ -30,15 +40,21 @@ public class UserController {
         }
     }
 
+    /**
+     *
+     * @param user takes in a username and password for user login
+     * @return user able to log in with authentication with correct username and password
+     * @throws AuthenticationException if user is not authenticated with username or password
+     */
     @PostMapping("/login")
     public ResponseEntity<?> authorizeLogin(@RequestBody User user) throws AuthenticationException {
             User authenticatedUser = userService.authenicatorUser(user.getUserName(), user.getPassword());
             return new ResponseEntity<>(authenticatedUser, HttpStatus.OK);
     }
 
-    // users to get all documents back
-    // GetMapping for method type List<Documents> getAllDocuments ()
-    // get back all documents back
-    // If we want to add for a
+    /** Method for users to get all documents created by user
+     * May need to implement later as need */
+
+    // @GetMapping for method type List<Documents> getAllDocuments();
 
 }

@@ -8,18 +8,24 @@ import lombok.Data;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * User entity used to model all the information for users in the program.
+ */
 
 @Entity
 @Data
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int userId;
-    private String name;
-    private String userName;
-    private String password;
+    private int userId; // unique id for users
+    private String name; // name for the user
+    private String userName; // username for the user (login info)
+    private String password; // password for the user (login info)
+
 //    private List<Document> documents;
 //    private List<Folder> folders;
+
+    // Commented out due to not having other entities and other getters/setters
 
     public User() {
     }
@@ -54,7 +60,6 @@ public class User {
     public void setUserName(String userName) {
         this.userName = userName;
     }
-
 
     public String getPassword() {
         return password;
