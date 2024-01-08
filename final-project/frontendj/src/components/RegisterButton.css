@@ -1,0 +1,22 @@
+
+.register-container {
+    text-align: center;
+}
+
+.register-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background: linear-gradient(to right, #1756d5, #a738ea);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    top: 50px;
+    right: 0;
+}
+
+.register-button:hover {
+    background-color: #5450d3;
+}
