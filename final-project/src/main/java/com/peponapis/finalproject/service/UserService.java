@@ -1,7 +1,7 @@
 package com.peponapis.finalproject.service;
 
 
-import com.peponapis.finalproject.model.User;
+import com.peponapis.finalproject.model.UserEntity;
 import com.peponapis.finalproject.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -30,24 +30,25 @@ public class UserService {
     }
 
     /**
-     * @param user to create or update
+     * @param userEntity to create or update
      * @return the new user into the user repo
      * if the username already exists, unable to create user
      */
-    public User saveUser(User user){
-        if (userRepo.existsByUserName(user.getUserName())){
+    public UserEntity saveUser(UserEntity userEntity){
+        if (userRepo.existsByUserName(userEntity.getUserName())){
             return null;
         }
-        String password = passwordEncoder.encode((user.getPassword()));
-        user.setPassword(password);
-        return userRepo.save(user);
+        String password = passwordEncoder.encode((userEntity.getPassword()));
+        userEntity.setPassword(password);
+
+        return userRepo.save(userEntity);
     }
 
     /**
      * @param id for the user
      * @return the user with given id or return null
      */
-    public User getUser(int id){
+    public UserEntity getUser(int id){
         if(userRepo.findById(id).isPresent()){
             return userRepo.findById(id).get();
         }
@@ -59,7 +60,7 @@ public class UserService {
      * @param name of the user
      * @return the user with given name that exists in user repo
      */
-    public User findByName(String name){
+    public UserEntity findByName(String name){
         return userRepo.findByName(name);
     }
 
@@ -68,7 +69,7 @@ public class UserService {
      * @param username of the user
      * @return the username with given username that exists in user repo
      */
-    public Optional<User> findByUserName(String username){
+    public Optional<UserEntity> findByUserName(String username){
         return userRepo.findByUserName(username);
     }
 
@@ -78,7 +79,7 @@ public class UserService {
      * user password is encrypted, must encrypt the password before searching,
      * @return the password that is given that exists in user repo
      */
-    public User findByPassword(String password) {
+    public UserEntity findByPassword(String password) {
         String encryptPass = passwordEncoder.encode(password);
         return userRepo.findByPassword(encryptPass);
     }
@@ -92,12 +93,14 @@ public class UserService {
      *                                  for username and user password
      */
 
-    public User authenicatorUser (String username, String password) throws AuthenticationException {
-        User user = userRepo.findByUserName(username)
+    public UserEntity authenicatorUser (String username, String password) throws AuthenticationException {
+        UserEntity userEntity = userRepo.findByUserName(username)
                 .orElseThrow(() -> new AuthenticationException("Username doesn't exist"));
-        if (!passwordEncoder.matches(password, user.getPassword())){
+        if (!passwordEncoder.matches(password, userEntity.getPassword())){
             throw new AuthenticationException("Invalid Login");
         }
-        return user;
+        return userEntity;
     }
+
+
 }
