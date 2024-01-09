@@ -1,16 +1,10 @@
 import googledoc from './googledoc.svg'
 import './App.css';
+import Login from "./components/Login";
 
-import FrontPage from "./pages/FrontPage";
-
-import NotFound from "./pages/NotFound";
-
-import { Router, Routes, Route } from "react-router-dom";
-import {DetailedPage} from "./pages/DetailedPage";
 import {RoutePath} from "./components/RoutePath";
-import TextEditor from "./components/TextEditor";
-import LoginButton from "./components/LoginButton";
-import RegisterButton from "./components/RegisterButton";
+import Register from "./components/Register";
+
 
 
 function App() {
@@ -26,11 +20,7 @@ function App() {
               >
                   Zip Docs
               </a>
-              <TextEditor/>
-              <LoginButton/>
-              <RegisterButton/>
-
-
+              <RoutePath/>
           </header>
       </div>
 

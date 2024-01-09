@@ -1,13 +1,35 @@
-import FrontPage from "../pages/FrontPage";
-import {DetailedPage} from "../pages/DetailedPage";
+import MainPage from "../pages/MainPage";
 import NotFound from "../pages/NotFound";
-import { Router, Routes, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
+import LoginPage from "../pages/LoginPage";
+import RegisterPage from "../pages/RegisterPage";
+
 export const  RoutePath =  () => {
     return (
-        <Routes>
-            <Route path="/frontpage" element={<FrontPage />} />
-            <Route path="notfound" element={<NotFound />} />
-        </Routes>
+        <Router>
+            <nav>
+                <ul>
+                    <li>
+                        <Link to="/home">Home</Link>
+                    </li>
+                    <li>
+                        <Link to="/login">Login</Link>
+                    </li>
+                    <li>
+                        <Link to="/register">Register</Link>
+                    </li>
+                    <li>
+                        <Link to="/notfound">Not Found</Link>
+                    </li>
+                </ul>
+            </nav>
+            <Routes>
+                <Route path="/home" component={MainPage} />
+                <Route path="/login" component={LoginPage} />
+                <Route path="/register" component={RegisterPage} />
+                <Route path="/notfound" component={NotFound} />
+            </Routes>
+        </Router>
     )
 
 

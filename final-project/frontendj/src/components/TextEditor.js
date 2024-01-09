@@ -10,31 +10,49 @@ const TextEditor = () => {
     };
 
     const handleSave = () => {
-        // You should implement the logic here to send the content to your server and save it to the database
-        // For simplicity, let's assume you have an API endpoint '/saveContent' on your server
+        // Your save logic here
+    };
 
-        fetch('http://your-server-api/saveContent', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ content }),
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log('Content saved successfully:', data);
-                // You can handle success or display a notification to the user
-            })
-            .catch((error) => {
-                console.error('Error saving content:', error);
-                // Handle the error or display an error message to the user
-            });
+    // Define a custom toolbar
+    const modules = {
+        toolbar: [
+            [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+            ['bold', 'italic', 'underline', 'strike'],
+            [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+            ['link', 'image', 'video'],
+            ['clean'],
+        ],
+    };
+
+    // Define the formats
+    const formats = [
+        'header',
+        'bold',
+        'italic',
+        'underline',
+        'strike',
+        'list',
+        'bullet',
+        'link',
+        'image',
+        'video',
+    ];
+
+    // Set default text color to black
+    const styles = {
+        color: 'black',
     };
 
     return (
         <div>
             <h1>Text Editor</h1>
-            <ReactQuill value={content} onChange={handleChange} style={{height:'900px', width:'1000px'}}/>
+            <ReactQuill
+                value={content}
+                onChange={handleChange}
+                modules={modules}
+                formats={formats}
+                style={{ height: '900px', width: '1000px', ...styles }}
+            />
             <div>
                 <p>Content:</p>
                 <div dangerouslySetInnerHTML={{ __html: content }} />
