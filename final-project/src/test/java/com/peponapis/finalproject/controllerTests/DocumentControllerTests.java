@@ -73,7 +73,7 @@ public class DocumentControllerTests {
         when(this.documentService.getDocument(id)).thenReturn(document);
 
         // assert
-        this.mockMvc.perform(get("/document/view/2"))
+        this.mockMvc.perform(get("/document/view/" + id))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType("application/json"));
     }

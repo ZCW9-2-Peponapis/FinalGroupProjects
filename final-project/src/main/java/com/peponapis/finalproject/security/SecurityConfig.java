@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
 
 
 /**
@@ -37,8 +38,9 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+
         http.authorizeHttpRequests(auth ->
-                auth.requestMatchers("/users/**", "/document/getAll","/document/view/**", "/folder").permitAll()
+                auth.requestMatchers("/users/**", "/document/getAll","/document/view/**","/document/search/**", "/folder").permitAll()
                         .anyRequest().authenticated()).csrf(AbstractHttpConfigurer::disable).cors(AbstractHttpConfigurer::disable)
                 .httpBasic(Customizer.withDefaults())
                 .formLogin(Customizer.withDefaults());
