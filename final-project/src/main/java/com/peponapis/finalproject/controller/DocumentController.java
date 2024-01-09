@@ -1,5 +1,6 @@
 package com.peponapis.finalproject.controller;
 
+import com.peponapis.finalproject.dtos.DocumentDTO;
 import com.peponapis.finalproject.model.Document;
 import com.peponapis.finalproject.service.DocumentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,9 @@ public class DocumentController {
 
     @Autowired
     public DocumentController(DocumentService documentService){
+
         this.documentService = documentService;
+//        this.authenticationFacade = authenticationFacade;
     }
 
     /**
@@ -45,8 +48,8 @@ public class DocumentController {
      * @return Document with updated values
      */
     @PatchMapping("/update")
-    public Document saveDocument(@RequestBody Document document){
-        return this.documentService.saveDocument(document);
+    public DocumentDTO saveDocument(@RequestBody Document document){
+        return this.documentService.updateDocument(document);
     }
 
     /**
@@ -55,8 +58,8 @@ public class DocumentController {
      * @return document that was added to db
      */
     @PostMapping("/create")
-    public Document creatDocument(@RequestBody Document document){
-        return this.documentService.saveDocument(document);
+    public DocumentDTO createDocument(@RequestBody Document document){
+        return this.documentService.createDocument(document);
     }
 
     /**
