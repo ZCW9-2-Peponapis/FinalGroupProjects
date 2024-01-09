@@ -1,0 +1,22 @@
+/* LoginButton.css */
+.login-container {
+    text-align: center;
+}
+
+.login-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background: linear-gradient(to right, #1756d5, #a738ea);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+.login-button:hover {
+    background-color: #5450d3;
+}

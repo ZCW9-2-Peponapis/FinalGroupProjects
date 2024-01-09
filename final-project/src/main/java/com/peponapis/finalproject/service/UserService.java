@@ -6,6 +6,7 @@ import com.peponapis.finalproject.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.naming.AuthenticationException;
 import java.util.Optional;
@@ -15,6 +16,7 @@ import java.util.Optional;
  */
 
 @Service
+@CrossOrigin(origins = "http://localhost:3000")
 public class UserService {
 
     private final UserRepo userRepo;
