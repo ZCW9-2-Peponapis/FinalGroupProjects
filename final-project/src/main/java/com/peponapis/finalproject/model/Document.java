@@ -1,6 +1,7 @@
 package com.peponapis.finalproject.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -22,7 +23,7 @@ public class Document {
     @ManyToOne
     @JoinColumn(name="user_id")
     @JsonBackReference
-    User user; // user who created the document
+    UserEntity userEntity; // user who created the document
 
     @OneToOne
     Folder folder; // folder the document is in
@@ -46,7 +47,7 @@ public class Document {
         // call to constructor
         this.creationDate = new Date();
         this.modificationDate = new Date();
-        this.user = user;
+        this.userEntity = userEntity;
     }
 
     public int getId() {
@@ -87,12 +88,12 @@ public class Document {
         this.modificationDate = modificationDate;
     }
 
-    public User getUser() {
-        return user;
+    public UserEntity getUser() {
+        return userEntity;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(UserEntity userEntity) {
+        this.userEntity = userEntity;
     }
 
 //    public Folder getFolder() {
