@@ -1,7 +1,11 @@
 package com.peponapis.finalproject.serviceTests;
 
+import com.peponapis.finalproject.dtos.DocumentDTO;
 import com.peponapis.finalproject.model.Document;
+import com.peponapis.finalproject.model.UserEntity;
 import com.peponapis.finalproject.repository.DocumentRepo;
+import com.peponapis.finalproject.repository.UserRepo;
+import com.peponapis.finalproject.security.AuthenticationFacade;
 import com.peponapis.finalproject.service.DocumentService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -21,12 +25,17 @@ import static org.mockito.Mockito.when;
 public class DocumentServiceTests {
     @Mock
     DocumentRepo documentRepo;
+    @Mock
+    AuthenticationFacade authenticationFacade;
+
+    @Mock
+    UserRepo userRepo;
 
     private DocumentService documentService;
 
     @BeforeEach
     public void setUp(){
-        this.documentService = new DocumentService(this.documentRepo);
+        this.documentService = new DocumentService(this.documentRepo, authenticationFacade, this.userRepo);
     }
 
     @Test
@@ -38,12 +47,15 @@ public class DocumentServiceTests {
     public void testDocumentServiceSaveDocument(){
         // given
         Document documentToSave = Mockito.mock(Document.class);
+        UserEntity user = Mockito.mock(UserEntity.class);
+        DocumentDTO dto = Mockito.mock(DocumentDTO.class);
 
         // when
         when(this.documentRepo.save(documentToSave)).thenReturn(documentToSave);
+        Mockito.mockConstruction(DocumentDTO.class, (mock, context) -> {});
 
         // assert
-        Assertions.assertThat(this.documentService.saveDocument(documentToSave)).isEqualTo(documentToSave);
+        Assertions.assertThat(this.documentService.updateDocument(documentToSave)).isNotNull();
     }
 
     @Test

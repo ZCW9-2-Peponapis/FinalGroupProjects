@@ -16,7 +16,7 @@ public class Folder {
     private Date creationDate;
     private Date modificationDate;
     @ManyToOne
-    private User user;
+    private UserEntity userEntity;
     @OneToMany
     private List<Document>docs;
 

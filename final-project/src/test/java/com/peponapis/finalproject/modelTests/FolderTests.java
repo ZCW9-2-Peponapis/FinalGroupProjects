@@ -1,14 +1,10 @@
 package com.peponapis.finalproject.modelTests;
 
-import com.peponapis.finalproject.model.Document;
 import com.peponapis.finalproject.model.Folder;
-import com.peponapis.finalproject.model.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class FolderTests {
 

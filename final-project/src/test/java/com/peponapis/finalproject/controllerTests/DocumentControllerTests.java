@@ -1,7 +1,9 @@
 package com.peponapis.finalproject.controllerTests;
 
 import com.peponapis.finalproject.controller.DocumentController;
+import com.peponapis.finalproject.dtos.DocumentDTO;
 import com.peponapis.finalproject.model.Document;
+import com.peponapis.finalproject.security.AuthenticationFacade;
 import com.peponapis.finalproject.service.DocumentService;
 import org.assertj.core.api.Assertions;
 import org.json.JSONObject;
@@ -71,7 +73,7 @@ public class DocumentControllerTests {
         when(this.documentService.getDocument(id)).thenReturn(document);
 
         // assert
-        this.mockMvc.perform(get("/document/view/2"))
+        this.mockMvc.perform(get("/document/view/" + id))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType("application/json"));
     }
@@ -80,9 +82,11 @@ public class DocumentControllerTests {
     public void testDocumentControllerSaveDocument() throws Exception {
         // given
         Document document = new Document("Title1", "Body1", 123);
+        DocumentDTO dto = new DocumentDTO(document);
         String requestBody = "{\"id\":1, \"title\":\"Title1\", \"body\":\"Body1\", \"userId\":123}";
+
         // when
-        when(this.documentService.saveDocument(document)).thenReturn(document);
+        when(this.documentService.updateDocument(document)).thenReturn(dto);
 
         // assert
         this.mockMvc.perform(patch("/document/update")
@@ -96,9 +100,10 @@ public class DocumentControllerTests {
     public void testDocumentControllerCreateDocument() throws Exception {
         // given
         Document document = new Document("Title1", "Body1", 123);
+        DocumentDTO dto = new DocumentDTO(document);
         String requestBody = "{\"id\":1, \"title\":\"Title1\", \"body\":\"Body1\", \"userId\":123}";
         // when
-        when(this.documentService.saveDocument(document)).thenReturn(document);
+        when(this.documentService.createDocument(document)).thenReturn(dto);
 
         // assert
         this.mockMvc.perform(post("/document/create")

@@ -1,7 +1,7 @@
 package com.peponapis.finalproject.modelTests;
 
 import com.peponapis.finalproject.model.Document;
-import com.peponapis.finalproject.model.User;
+import com.peponapis.finalproject.model.UserEntity;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -63,12 +63,12 @@ public class DocumentTests {
 
     @Test
     public void testDocumentGetUser(){
-        User user = new User();
+        UserEntity userEntity = new UserEntity();
         Document document = new Document();
 
-        document.setUser(user);
+        document.setUser(userEntity);
 
-        Assertions.assertEquals(user, document.getUser());
+        Assertions.assertEquals(userEntity, document.getUser());
     }
 
     @Test

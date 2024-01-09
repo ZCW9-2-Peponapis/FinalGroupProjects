@@ -1,11 +1,10 @@
 package com.peponapis.finalproject.model;
 
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,7 +13,8 @@ import java.util.List;
 
 @Entity
 @Data
-public class User {
+@Table(name = "user")
+public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int userId; // unique id for users
@@ -30,10 +30,10 @@ public class User {
 
     // Commented out due to not having other entities and other getters/setters
 
-    public User() {
+    public UserEntity() {
     }
 
-    public User(String name, String userName, String password) {
+    public UserEntity(String name, String userName, String password) {
         this.name = name;
         this.userName = userName;
         this.password = password;
@@ -79,6 +79,8 @@ public class User {
     public void setDocuments(List<Document> documents) {
         this.documents = documents;
     }
+
+    public void addDocument(Document doc){this.documents.add(doc);}
 
     public List<Folder> getFolders() {
         return folders;
