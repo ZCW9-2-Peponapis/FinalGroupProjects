@@ -1,6 +1,11 @@
-export const NotFound = () => {
-    return (
-    <h1> Error page</h1>
 
-);
+function NotFound() {
+    return (
+        <div className="App">
+            <h1> Not Found</h1>
+        </div>
+
+    );
 }
+
+export default NotFound;

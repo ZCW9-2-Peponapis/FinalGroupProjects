@@ -34,7 +34,7 @@ const TextEditor = () => {
     return (
         <div>
             <h1>Text Editor</h1>
-            <ReactQuill value={content} onChange={handleChange} />
+            <ReactQuill value={content} onChange={handleChange} style={{height:'900px', width:'1000px'}}/>
             <div>
                 <p>Content:</p>
                 <div dangerouslySetInnerHTML={{ __html: content }} />

@@ -1,12 +1,17 @@
 import googledoc from './googledoc.svg'
 import './App.css';
-import HelloWorld from "./components/HelloWorld";
-import Login from "./components/Login";
-import Register from "./components/Register";
-import {FrontPage} from "./pages/FrontPage";
+
+import FrontPage from "./pages/FrontPage";
+
+import NotFound from "./pages/NotFound";
+
+import { Router, Routes, Route } from "react-router-dom";
+import {DetailedPage} from "./pages/DetailedPage";
+import {RoutePath} from "./components/RoutePath";
 import TextEditor from "./components/TextEditor";
 import LoginButton from "./components/LoginButton";
 import RegisterButton from "./components/RegisterButton";
+
 
 function App() {
   return (
@@ -22,13 +27,13 @@ function App() {
                   Zip Docs
               </a>
               <TextEditor/>
-
               <LoginButton/>
               <RegisterButton/>
 
 
           </header>
       </div>
+
 
   );
 }
