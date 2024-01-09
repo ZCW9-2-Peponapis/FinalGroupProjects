@@ -1,6 +1,7 @@
 package com.peponapis.finalproject.service;
 
 
+import com.peponapis.finalproject.dtos.UserDTO;
 import com.peponapis.finalproject.model.UserEntity;
 import com.peponapis.finalproject.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -93,13 +94,16 @@ public class UserService {
      *                                  for username and user password
      */
 
-    public UserEntity authenicatorUser (String username, String password) throws AuthenticationException {
+    public UserDTO authenicatorUser (String username, String password) throws AuthenticationException {
         UserEntity userEntity = userRepo.findByUserName(username)
                 .orElseThrow(() -> new AuthenticationException("Username doesn't exist"));
         if (!passwordEncoder.matches(password, userEntity.getPassword())){
             throw new AuthenticationException("Invalid Login");
         }
-        return userEntity;
+
+        UserDTO userDTO = new UserDTO(userEntity);
+
+        return userDTO;
     }
 
 

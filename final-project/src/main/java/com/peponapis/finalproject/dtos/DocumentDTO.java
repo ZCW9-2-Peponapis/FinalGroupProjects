@@ -6,13 +6,15 @@ import com.peponapis.finalproject.model.Document;
 import java.util.Date;
 
 public class DocumentDTO {
+    private int id;
     private String title;
     private String body;
     private Date creationDate;
     private Date modificationDate;
     private String author;
 
-    public DocumentDTO(String title, String body, Date creationDate, Date modificationDate, String author) {
+    public DocumentDTO(int id, String title, String body, Date creationDate, Date modificationDate, String author) {
+        this.id = id;
         this.title = title;
         this.body = body;
         this.creationDate = creationDate;
@@ -21,6 +23,7 @@ public class DocumentDTO {
     }
 
     public DocumentDTO(Document document){
+        this.id = document.getId();
         this.title = document.getTitle();
         this.body = document.getBody();
         this.creationDate = document.getCreationDate();
@@ -29,6 +32,14 @@ public class DocumentDTO {
     }
 
     public DocumentDTO(){}
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;

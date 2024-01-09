@@ -1,4 +1,5 @@
 package com.peponapis.finalproject.controller;
+import com.peponapis.finalproject.dtos.UserDTO;
 import com.peponapis.finalproject.model.UserEntity;
 import com.peponapis.finalproject.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,7 +64,7 @@ public class UserController {
         catch(BadCredentialsException e){
             System.out.println("Bad Credentials!");
         }
-        UserEntity authenticatedUserEntity = userService.authenicatorUser(userEntity.getUserName(), userEntity.getPassword());
+        UserDTO authenticatedUserEntity = userService.authenicatorUser(userEntity.getUserName(), userEntity.getPassword());
             return new ResponseEntity<>(authenticatedUserEntity, HttpStatus.OK);
     }
 
