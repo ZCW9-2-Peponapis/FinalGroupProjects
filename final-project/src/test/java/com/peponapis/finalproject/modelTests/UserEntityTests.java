@@ -2,57 +2,57 @@ package com.peponapis.finalproject.modelTests;
 
 import com.peponapis.finalproject.model.Document;
 import com.peponapis.finalproject.model.Folder;
-import com.peponapis.finalproject.model.User;
+import com.peponapis.finalproject.model.UserEntity;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class UserTests {
+public class UserEntityTests {
 
     @Test
     public void getAndSetUserId() {
 
-        User user = new User();
+        UserEntity userEntity = new UserEntity();
 
-        user.setUserId(1);
+        userEntity.setUserId(1);
 
         Integer expected = 1;
 
-        Assertions.assertEquals(expected, user.getUserId());
+        Assertions.assertEquals(expected, userEntity.getUserId());
     }
     @Test
     public void getAndSetName() {
 
-        User user = new User();
-        user.setName("Bob");
+        UserEntity userEntity = new UserEntity();
+        userEntity.setName("Bob");
 
         String expected = "Bob";
 
-        Assertions.assertEquals(expected, user.getName());
+        Assertions.assertEquals(expected, userEntity.getName());
     }
     @Test
     public void getAndSetUserName() {
 
-        User user = new User();
-        user.setUserName("username");
+        UserEntity userEntity = new UserEntity();
+        userEntity.setUserName("username");
 
         String expected = "username";
 
-        Assertions.assertEquals(expected, user.getUserName());
+        Assertions.assertEquals(expected, userEntity.getUserName());
     }
     @Test
     public void getAndSetPassword() {
 
-        User user = new User();
-        user.setPassword("FacebookStoresItInATextFile");
+        UserEntity userEntity = new UserEntity();
+        userEntity.setPassword("FacebookStoresItInATextFile");
 
         String expected = "FacebookStoresItInATextFile";
 
-        Assertions.assertEquals(expected, user.getPassword());
+        Assertions.assertEquals(expected, userEntity.getPassword());
     }
     @Test
     public void getAndSetUserDocuments() {
 
-        User user = new User();
+        UserEntity userEntity = new UserEntity();
 
         Document document = new Document();
 
@@ -61,7 +61,7 @@ public class UserTests {
     @Test
     public void getAndSetUserFolders() {
 
-        User user = new User();
+        UserEntity userEntity = new UserEntity();
 
         Folder folder = new Folder();
 

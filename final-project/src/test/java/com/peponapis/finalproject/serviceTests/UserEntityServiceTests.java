@@ -1,6 +1,6 @@
 package com.peponapis.finalproject.serviceTests;
 
-import com.peponapis.finalproject.model.User;
+import com.peponapis.finalproject.model.UserEntity;
 import com.peponapis.finalproject.repository.UserRepo;
 import com.peponapis.finalproject.service.UserService;
 import org.junit.jupiter.api.Test;
@@ -16,40 +16,42 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class UserServiceTests {
+class UserEntityServiceTests {
 
     @Mock
     private UserRepo userRepo;
+    @Mock
+    private PasswordEncoder passwordEncoder;
 
     @InjectMocks
     private UserService userService;
 
     @Test
-    void testSaveUser() {  // Need to fix test 1/7/2024, methods changed with user auth
+    void testSaveUser() {  // Need to fix test 1/7/2024, methods changed with user auth --- I gotchu bro 1/8/2024
         // Arrange
-        User userToSave = new User("John Doe", "johndoe", "password");
-        when(userRepo.save(userToSave)).thenReturn(userToSave);
+        UserEntity userEntityToSave = new UserEntity("John Doe", "johndoe", "password");
+        when(userRepo.save(userEntityToSave)).thenReturn(userEntityToSave);
 
         // Act
-        User savedUser = userService.saveUser(userToSave);
+        UserEntity savedUserEntity = userService.saveUser(userEntityToSave);
 
         // Assert
-        assertEquals(userToSave, savedUser);
-        verify(userRepo, times(1)).save(userToSave);
+        assertEquals(userEntityToSave, savedUserEntity);
+        verify(userRepo, times(1)).save(userEntityToSave);
     }
 
     @Test
     void testFindByName() {
         // Arrange
         String name = "John Doe";
-        User expectedUser = new User(name, "johndoe", "password");
-        when(userRepo.findByName(name)).thenReturn(expectedUser);
+        UserEntity expectedUserEntity = new UserEntity(name, "johndoe", "password");
+        when(userRepo.findByName(name)).thenReturn(expectedUserEntity);
 
         // Act
-        User foundUser = userService.findByName(name);
+        UserEntity foundUserEntity = userService.findByName(name);
 
         // Assert
-        assertEquals(expectedUser, foundUser);
+        assertEquals(expectedUserEntity, foundUserEntity);
         verify(userRepo, times(1)).findByName(name);
     }
 
@@ -57,11 +59,11 @@ class UserServiceTests {
     void testFindByUserName() {
         // Arrange
         String username = "johndoe";
-        Optional<User> expectedUser = Optional.of(new User("John Doe", username, "password"));
+        Optional<UserEntity> expectedUser = Optional.of(new UserEntity("John Doe", username, "password"));
         when(userRepo.findByUserName(username)).thenReturn(expectedUser);
 
         // Act
-        Optional<User> foundUser = userService.findByUserName(username);
+        Optional<UserEntity> foundUser = userService.findByUserName(username);
 
         // Assert
         assertEquals(expectedUser, foundUser);
@@ -72,14 +74,15 @@ class UserServiceTests {
     void testFindByPassword() {  // Need to fix test 1/7/2024, methods change due to user auth
         // Arrange
         String password = "password";
-        User expectedUser = new User("John Doe", "johndoe", password);
-        when(userRepo.findByPassword(password)).thenReturn(expectedUser);
+        UserEntity expectedUserEntity = new UserEntity("John Doe", "johndoe", password);
+        when(userRepo.findByPassword(password)).thenReturn(expectedUserEntity);
+        when(this.passwordEncoder.encode(password)).thenReturn(password);
 
         // Act
-        User foundUser = userService.findByPassword(password);
+        UserEntity foundUserEntity = userService.findByPassword(password);
 
         // Assert
-        assertEquals(expectedUser, foundUser);
+        assertEquals(expectedUserEntity, foundUserEntity);
         verify(userRepo, times(1)).findByPassword(password);
     }
 }
