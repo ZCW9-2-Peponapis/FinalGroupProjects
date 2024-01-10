@@ -16,6 +16,7 @@ import javax.print.Doc;
 import java.security.Principal;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Document service. Operations relating to Document are found here.
@@ -50,11 +51,12 @@ public class DocumentService {
         this.userRepo.save(docAuthor);
 
         DocumentDTO doc = new DocumentDTO();
-        doc.setAuthor(document.getUser().getName());
+        doc.setAuthorId(document.getUser().getUserId());
         doc.setTitle(document.getTitle());
         doc.setBody(document.getBody());
         doc.setCreationDate(document.getCreationDate());
         doc.setModificationDate(document.getModificationDate());
+        doc.setAuthor(document.getUser().getName());
 
         return doc;
     }
@@ -72,8 +74,9 @@ public class DocumentService {
      *
      * @return all documents within the db as a list
      */
-    public List<Document> getAllDocuments(){
-        return this.documentRepo.findAll();
+    public List<DocumentDTO> getAllDocuments(){
+
+        return this.documentRepo.findAll().stream().map(DocumentDTO::new).collect(Collectors.toList());
     }
 
     /**
@@ -94,6 +97,7 @@ public class DocumentService {
      * @return list of documents containing that search-term
      */
     public List<Document> searchDocuments(String filter){
+
         return this.documentRepo.searchDocuments(filter);
     }
 

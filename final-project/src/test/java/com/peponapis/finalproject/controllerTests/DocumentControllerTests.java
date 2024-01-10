@@ -53,9 +53,9 @@ public class DocumentControllerTests {
     public void testDocumentControllerViewAllDocuments() throws Exception {
         // given
         List<Document> documentList = Arrays.asList(new Document("Test1", "Body1", 123), new Document("Test2", "Body2", 321));
-
+        List<DocumentDTO> list = Mockito.mock();
         // when
-        when(this.documentService.getAllDocuments()).thenReturn(documentList);
+        when(this.documentService.getAllDocuments()).thenReturn(list);
 
         // assert
         this.mockMvc.perform(get("/document/getAll"))
