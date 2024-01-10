@@ -3,15 +3,11 @@ import './App.css';
 import Login from "./components/Login";
 import Library from './components/Library'
 
-<<<<<<< HEAD
 import RoutePath from "./components/RoutePath";
 import UserComponent from "./components/UserComponent";
-=======
-import {RoutePath} from "./components/RoutePath";
 import Register from "./components/Register";
 import TextEditor from './components/TextEditor';
 import LoginPage from './pages/LoginPage';
->>>>>>> 20e31f1 (playing with editor)
 
 
 
@@ -28,12 +24,9 @@ function App() {
               >
                   Zip Docs
               </a>
-<<<<<<< HEAD
               <UserComponent/>
               <Library />
-=======
               <TextEditor />
->>>>>>> 20e31f1 (playing with editor)
               <RoutePath/>
           </header>
       </div>
