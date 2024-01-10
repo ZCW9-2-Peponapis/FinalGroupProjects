@@ -13,6 +13,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/document")
+@CrossOrigin (origins = "http://localhost:3000")
 public class DocumentController {
     private DocumentService documentService;
 
@@ -28,7 +29,7 @@ public class DocumentController {
      * @return all documents in the db
      */
     @GetMapping("/getAll")
-    public List<Document> viewAllDocuments(){
+    public List<DocumentDTO> viewAllDocuments(){
         return this.documentService.getAllDocuments();
     }
 
@@ -38,7 +39,7 @@ public class DocumentController {
      * @return document associated with given id
      */
     @GetMapping("/view/{id}")
-    public Document viewDocument(@PathVariable("id") int id){
+    public DocumentDTO viewDocument(@PathVariable("id") int id){
         return this.documentService.getDocument(id);
     }
 

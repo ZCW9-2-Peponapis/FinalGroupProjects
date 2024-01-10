@@ -11,14 +11,16 @@ public class DocumentDTO {
     private String body;
     private Date creationDate;
     private Date modificationDate;
+    private int author_id;
     private String author;
 
-    public DocumentDTO(int id, String title, String body, Date creationDate, Date modificationDate, String author) {
+    public DocumentDTO(int id, String title, String body, Date creationDate, Date modificationDate, int author_id, String author) {
         this.id = id;
         this.title = title;
         this.body = body;
         this.creationDate = creationDate;
         this.modificationDate = modificationDate;
+        this.author_id = author_id;
         this.author = author;
     }
 
@@ -28,6 +30,7 @@ public class DocumentDTO {
         this.body = document.getBody();
         this.creationDate = document.getCreationDate();
         this.modificationDate = document.getModificationDate();
+        this.author_id = document.getUser().getUserId();
         this.author = document.getUser().getName();
     }
 
@@ -71,6 +74,22 @@ public class DocumentDTO {
 
     public void setModificationDate(Date modificationDate) {
         this.modificationDate = modificationDate;
+    }
+
+    public int getAuthorId() {
+        return author_id;
+    }
+
+    public void setAuthorId(int author_id) {
+        this.author_id = author_id;
+    }
+
+    public int getAuthor_id() {
+        return author_id;
+    }
+
+    public void setAuthor_id(int author_id) {
+        this.author_id = author_id;
     }
 
     public String getAuthor() {

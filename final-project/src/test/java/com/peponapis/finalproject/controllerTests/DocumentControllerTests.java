@@ -3,6 +3,7 @@ package com.peponapis.finalproject.controllerTests;
 import com.peponapis.finalproject.controller.DocumentController;
 import com.peponapis.finalproject.dtos.DocumentDTO;
 import com.peponapis.finalproject.model.Document;
+import com.peponapis.finalproject.model.UserEntity;
 import com.peponapis.finalproject.security.AuthenticationFacade;
 import com.peponapis.finalproject.service.DocumentService;
 import org.assertj.core.api.Assertions;
@@ -53,9 +54,9 @@ public class DocumentControllerTests {
     public void testDocumentControllerViewAllDocuments() throws Exception {
         // given
         List<Document> documentList = Arrays.asList(new Document("Test1", "Body1", 123), new Document("Test2", "Body2", 321));
-
+        List<DocumentDTO> list = Mockito.mock();
         // when
-        when(this.documentService.getAllDocuments()).thenReturn(documentList);
+        when(this.documentService.getAllDocuments()).thenReturn(list);
 
         // assert
         this.mockMvc.perform(get("/document/getAll"))
@@ -67,10 +68,13 @@ public class DocumentControllerTests {
     public void testDocumentControllerViewDocument() throws Exception {
         // given
         int id = 2;
-        Document document = new Document("Title1", "Body1", 123);
-
+        UserEntity user = Mockito.mock(UserEntity.class);
+        Document document = Mockito.mock(Document.class);
+        document.setUser(user);
+        DocumentDTO dto = Mockito.mock(DocumentDTO.class);
         // when
-        when(this.documentService.getDocument(id)).thenReturn(document);
+        when(this.documentService.getDocument(id)).thenReturn(dto);
+        when(document.getUser()).thenReturn(user);
 
         // assert
         this.mockMvc.perform(get("/document/view/" + id))
