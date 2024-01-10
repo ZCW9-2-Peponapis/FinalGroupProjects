@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './Library.css';
 
+// TBD: make this exportable so that it can also be reused in the page for search results
 function Document({ ...docDetails }) {
     // formatting date from api to Day Month, Year (i.e. 4 January, 2024)
     const date = new Date(docDetails.modificationDate)
@@ -9,9 +10,23 @@ function Document({ ...docDetails }) {
         month: "long",
         year: "numeric"
     })
+    // Disable the button if session id doesn't match the author id from docDetails
+    // something like this IN THE DOCUMENT VIEW/EDIT PAGE, NOT HERE. THERE'S AN EDIT BUTTON THERE
+    // const userIsNotAuthor = docDetails.authorId == session.get('user_id);
+
+    /*
+        let navigate = useNavigate();
+        const routeToDocumentView = () => {
+            let path = `whateverPathItIs`;
+            navigate(path);
+        }
+    */
 
     return (
         <>
+        {/* TBA: make the entire thing a button, route to view document page
+        something something <button onClick()={routeToDocumentView}>
+        */}
             <div className="card">
                 <div className="img">
                     <div className="save">
@@ -43,25 +58,27 @@ function Document({ ...docDetails }) {
     )
 }
 
+// resources: https://www.freecodecamp.org/news/how-to-fetch-api-data-in-react/
 const Library = () => {
     const [documents, setDocuments] = useState([]);
 
     useEffect(() => {
+        // fetch request to our backend to get documents
         fetch('http://localhost:8080/document/getAll', {
             method: 'GET',
         }).then((res) => {
-            return res.json();
-        }).then((data) => {
-            console.log(data);
-            setDocuments(data);
+            return res.json(); // returning the response as a json... idk what this does
+        }).then((data) => { // get the data from the response
+            //console.log(data);
+            setDocuments(data); // save the data into our variable documents
         });
     }, []);
 
     return (
-        <div>
+        <div className='Library'>
             <p>THIS IS THE LIBRARY COMPONENT!</p>
-            {documents.map((doc) => {
-                return <><Document {...doc} /></>
+            {documents.map((doc) => { // for every doc in documents,
+                return <><Document {...doc} /></> // make a document component & pass in doc's data to it
             })}
         </div>
     )
