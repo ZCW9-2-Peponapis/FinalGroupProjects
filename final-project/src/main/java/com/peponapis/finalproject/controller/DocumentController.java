@@ -39,7 +39,7 @@ public class DocumentController {
      * @return document associated with given id
      */
     @GetMapping("/view/{id}")
-    public Document viewDocument(@PathVariable("id") int id){
+    public DocumentDTO viewDocument(@PathVariable("id") int id){
         return this.documentService.getDocument(id);
     }
 

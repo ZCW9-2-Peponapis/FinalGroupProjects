@@ -70,7 +70,7 @@ public class DocumentControllerTests {
         Document document = new Document("Title1", "Body1", 123);
 
         // when
-        when(this.documentService.getDocument(id)).thenReturn(document);
+        when(this.documentService.getDocument(id)).thenReturn(new DocumentDTO(document));
 
         // assert
         this.mockMvc.perform(get("/document/view/" + id))
