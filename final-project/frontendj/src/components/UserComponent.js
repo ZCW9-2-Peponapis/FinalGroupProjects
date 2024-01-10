@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Login from './Login'; // Create a Login component
 import user from '../user.png'; // Import your login icon
-import Register from "./Register";
 import './UserComponent.css'; // Import a CSS file for stylin
 
 const UserComponent = () => {
