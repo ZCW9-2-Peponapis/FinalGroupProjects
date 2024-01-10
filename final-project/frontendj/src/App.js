@@ -2,8 +2,8 @@ import googledoc from './googledoc.svg'
 import './App.css';
 import Login from "./components/Login";
 
-import {RoutePath} from "./components/RoutePath";
-import Register from "./components/Register";
+import RoutePath from "./components/RoutePath";
+import UserComponent from "./components/UserComponent";
 
 
 
@@ -20,7 +20,8 @@ function App() {
               >
                   Zip Docs
               </a>
-              <RoutePath/>
+              <UserComponent/>
+              <RoutePath />
           </header>
       </div>
 

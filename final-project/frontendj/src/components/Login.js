@@ -1,6 +1,8 @@
+// Login.js (LoginMenu component)
+
 import React, { useState } from 'react';
 
-const Login = () => {
+const Login = ({ onLogin }) => {
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
 
@@ -15,8 +17,21 @@ const Login = () => {
             });
 
             if (response.ok) {
-                console.log('Login successful');
+                const userData = await response.json();
+
+                // Save user session in localStorage
+                localStorage.setItem('userName', JSON.stringify(userData.userName));
+                localStorage.setItem('userInfo', JSON.stringify(userData));
+
+                // Notify the parent component about the login
+                onLogin();
+
+
+
+                console.log(localStorage.getItem('userInfo'));
+
                 // Redirect or show success message
+                console.log('Login successful');
             } else {
                 console.error('Login failed');
                 // Handle login failure
@@ -27,16 +42,24 @@ const Login = () => {
     };
 
     return (
-        <div className="login-container">
-            <h2>Login</h2>
-            <label className="input-label">Username:</label>
-            <input type="text" value={userName} onChange={(e) => setUserName(e.target.value)} />
-            <br />
-            <label className="input-label">Password:</label>
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-            <br />
-            <button className="login-button" onClick={handleLogin}>Login</button>
+        <div className="login-menu">
+            <input
+                type="text"
+                placeholder="Username"
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
+                style={{display: 'block', marginBottom: '10px'}}
+            />
+            <input
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                style={{display: 'block', marginBottom: '10px'}}
+            />
+            <button onClick={handleLogin}>Login</button>
         </div>
+
     );
 };
 

@@ -1,6 +1,7 @@
 
 import LoginButton from "../components/LoginButton";
 import RegisterButton from "../components/RegisterButton";
+import Login from "../components/Login";
 
 function LoginPage() {
     return (
@@ -9,8 +10,7 @@ function LoginPage() {
 
                 <h1>This is my login.</h1>
 
-
-                <LoginButton/>
+                <Login/>
 
             </header>
         </div>

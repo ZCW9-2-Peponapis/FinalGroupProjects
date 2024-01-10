@@ -7,8 +7,7 @@ function EditorPage() {
         <div className="App">
             <header className="App-header">
                 <TextEditor/>
-                <LoginButton/>
-                <RegisterButton/>
+
             </header>
         </div>
 
