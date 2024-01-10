@@ -83,9 +83,9 @@ const TextEditor = () => {
                 <div dangerouslySetInnerHTML={{ __html: content }} /> */}
             </div>
             <button onClick={handleSave}>Save</button>
-            <button onClick={() => setReadOnly(!readOnly)}>
+            {/* <button onClick={() => setReadOnly(!readOnly)}>
                 {readOnly ? 'Enable Editing' : 'Disable Editing'}
-            </button>
+            </button> */}
         </div>
     );
 };
