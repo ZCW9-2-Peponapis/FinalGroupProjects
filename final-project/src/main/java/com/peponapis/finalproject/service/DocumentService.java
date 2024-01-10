@@ -85,6 +85,7 @@ public class DocumentService {
      * @return the document with the given id, or null
      */
     public DocumentDTO getDocument(int id){
+        System.out.println("Retrieving document.....");
         if(this.documentRepo.findById(id).isPresent()) {
             return new DocumentDTO(this.documentRepo.findById(id).get());
         }
