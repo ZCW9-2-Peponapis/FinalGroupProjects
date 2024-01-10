@@ -14,6 +14,8 @@ function Document({ ...docDetails }) {
     // something like this IN THE DOCUMENT VIEW/EDIT PAGE, NOT HERE. THERE'S AN EDIT BUTTON THERE
     // const userIsNotAuthor = docDetails.authorId == session.get('user_id);
 
+    // LOOK AT THIS LATER for passing doc id to the editor/view page
+    // https://stackoverflow.com/questions/72004170/how-to-pass-id-in-route-react
     /*
         let navigate = useNavigate();
         const routeToDocumentView = () => {
@@ -75,12 +77,15 @@ const Library = () => {
     }, []);
 
     return (
+        <>
+        <p>THIS IS THE LIBRARY COMPONENT!</p>
+
         <div className='Library'>
-            <p>THIS IS THE LIBRARY COMPONENT!</p>
             {documents.map((doc) => { // for every doc in documents,
                 return <><Document {...doc} /></> // make a document component & pass in doc's data to it
             })}
         </div>
+        </>
     )
 };
 
