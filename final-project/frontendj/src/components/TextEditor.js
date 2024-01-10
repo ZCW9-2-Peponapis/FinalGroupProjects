@@ -3,8 +3,11 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'; // Import the styles
 
 const TextEditor = () => {
+    // read article to maybe parse string from quill
+    // https://davidj-fertitta.medium.com/an-ultra-quick-guide-to-quill-js-1aae1ac59d56
     const [content, setContent] = useState('');
     const [document, setDocument] = useState('');
+    let canEdit = true;
 
     // fetching document from backend
     useEffect(() => {
@@ -15,17 +18,22 @@ const TextEditor = () => {
         }).then((data) => {
             setContent(data.body);
             setDocument(data);
+            canEdit = sessionStorage.getItem('user_id') === document.authorId;
         });
-    }, []);
+    }, []); // REMEMBER THIS ENDING PART, OR ELSE IT'LL FETCH FOREVER
 
     const handleChange = (value) => {
         setContent(value);
+        console.log(value);
     };
 
     // resources: maybe will need this later when saving updates
     // https://jasonwatmore.com/post/2020/02/01/react-fetch-http-post-request-examples
-    const handleSave = () => {
+    const handleSave = (delta) => {
         // Your save logic here
+        console.log(delta)
+        
+        
     };
 
     // Define a custom toolbar
@@ -63,6 +71,7 @@ const TextEditor = () => {
             <h1>Text Editor</h1>
             <h2>{document.title}</h2>
             <ReactQuill
+            // readOnly = {!canEdit}
                 value={content}
                 onChange={handleChange}
                 modules={modules}
@@ -70,8 +79,8 @@ const TextEditor = () => {
                 style={{ height: '900px', width: '1000px', ...styles }}
             />
             <div>
-                <p>Content:</p>
-                <div dangerouslySetInnerHTML={{ __html: content }} />
+                {/* <p>Content:</p>
+                <div dangerouslySetInnerHTML={{ __html: content }} /> */}
             </div>
             <button onClick={handleSave}>Save</button>
             <button onClick={() => setReadOnly(!readOnly)}>
