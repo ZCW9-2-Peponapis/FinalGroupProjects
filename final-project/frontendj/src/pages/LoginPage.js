@@ -1,6 +1,5 @@
 
-import LoginButton from "../components/LoginButton";
-import RegisterButton from "../components/RegisterButton";
+
 import Login from "../components/Login";
 
 function LoginPage() {

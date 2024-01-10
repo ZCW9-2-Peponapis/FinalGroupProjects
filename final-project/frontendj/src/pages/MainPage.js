@@ -1,9 +1,4 @@
-import TextEditor from "../components/TextEditor";
-import LoginButton from "../components/LoginButton";
-import RegisterButton from "../components/RegisterButton";
-import googledoc from "../googledoc.svg";
-import Login from "../components/Login";
-import Register from "../components/Register";
+
 
 function MainPage() {
     return (
