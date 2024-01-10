@@ -4,6 +4,7 @@ import 'react-quill/dist/quill.snow.css'; // Import the styles
 
 const TextEditor = () => {
     const [content, setContent] = useState('');
+    const [readOnly, setReadOnly] = useState(false); // State to manage read-only mode
 
     const handleChange = (value) => {
         setContent(value);
@@ -49,6 +50,7 @@ const TextEditor = () => {
             <ReactQuill
                 value={content}
                 onChange={handleChange}
+                readOnly={readOnly} // Set readOnly conditionally
                 modules={modules}
                 formats={formats}
                 style={{ height: '900px', width: '1000px', ...styles }}
@@ -58,6 +60,9 @@ const TextEditor = () => {
                 <div dangerouslySetInnerHTML={{ __html: content }} />
             </div>
             <button onClick={handleSave}>Save</button>
+            <button onClick={() => setReadOnly(!readOnly)}>
+                {readOnly ? 'Enable Editing' : 'Disable Editing'}
+            </button>
         </div>
     );
 };
