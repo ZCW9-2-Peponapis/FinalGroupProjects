@@ -39,7 +39,7 @@ const Register = () => {
 
     return (
         <div>
-            <h2>Register</h2>
+            <h2>Registration Form</h2>
             {registrationSuccess ? (
                 <p>Registration successful! You can now log in.</p>
             ) : (

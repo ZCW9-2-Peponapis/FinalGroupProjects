@@ -19,7 +19,7 @@ body {
 }
 
 h2 {
-    color: #8ca5d9;
+    color: #000000;
 }
 
 label {
@@ -30,7 +30,7 @@ label {
 }
 
 input {
-    width: calc(100% - 500px); /* Adjusted width */
+    width: 300px; /* Adjusted width */
     padding: 10px;
     margin-top: 5px;
     margin-bottom: 15px;
