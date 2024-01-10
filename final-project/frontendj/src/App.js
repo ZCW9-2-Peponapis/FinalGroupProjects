@@ -1,6 +1,7 @@
 import googledoc from './googledoc.svg'
 import './App.css';
 import Login from "./components/Login";
+import Library from './components/Library'
 
 import RoutePath from "./components/RoutePath";
 import UserComponent from "./components/UserComponent";
@@ -21,7 +22,8 @@ function App() {
                   Zip Docs
               </a>
               <UserComponent/>
-              <RoutePath />
+              <Library />
+              <RoutePath/>
           </header>
       </div>
 
