@@ -32,9 +32,12 @@ const MenuBar = () => {
 };
 
 // resources: https://stackoverflow.com/questions/58334185/react-router-changes-the-url-but-the-component-is-not-rendered
+// read this later about scrolling to top when navigating:
+// https://stackoverflow.com/questions/36904185/react-router-scroll-to-top-on-every-transition
 const RoutePath = () => {
     return (
         // commented out router here and encompassed App into it in the index.js file
+        // that way, everything within the app is in the context of Router
         // <Router> 
             <div>
                 {/* commented out for now, bring it back later
@@ -42,7 +45,7 @@ const RoutePath = () => {
 
                 <Routes>
                     {/* exact keyword is a thing in the new routing version */}
-                    <Route path="/" exact element={<MainPage />} />
+                    <Route exact path="/" element={<MainPage />} />
                     <Route path="/document/:id" exact element={<EditorPage />} />
                     <Route path="/register" exact element={<RegisterPage />} />
                     <Route path="login" exact element={<LoginPage />} />

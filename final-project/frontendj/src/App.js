@@ -22,7 +22,7 @@ function App() {
   return (
       <div className="App">
           <header className="App-header">
-              <img src={googledoc} className="App-logo" alt="logo" onClick={() => routeToMainPage()}/>
+              <img src={googledoc} className="App-logo" alt="logo" onClick={routeToMainPage}/>
               <a
                   className="App-link"
                   href="https://github.com/ZCW9-2-Peponapis/FinalGroupProjects"

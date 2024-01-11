@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import './Library.css';
 import { useNavigate } from 'react-router-dom';
 
-// TBD: make this exportable so that it can also be reused in the page for search results
 function Document({ ...docDetails }) {
     // formatting date from api to Day Month, Year (i.e. 4 January, 2024)
     const date = new Date(docDetails.modificationDate)
@@ -11,9 +10,6 @@ function Document({ ...docDetails }) {
         month: "long",
         year: "numeric"
     })
-    // Disable the button if session id doesn't match the author id from docDetails
-    // something like this IN THE DOCUMENT VIEW/EDIT PAGE, NOT HERE. THERE'S AN EDIT BUTTON THERE
-    // const userIsNotAuthor = docDetails.authorId == session.get('user_id);
 
     // LOOK AT THIS LATER for passing doc id to the editor/view page
     // https://stackoverflow.com/questions/72004170/how-to-pass-id-in-route-react
@@ -61,6 +57,8 @@ function Document({ ...docDetails }) {
     )
 }
 
+// TBD: pass in some string so that it can be used for the path -- will make this reusable between
+//      search and main page
 // resources: https://www.freecodecamp.org/news/how-to-fetch-api-data-in-react/
 const Library = () => {
     const [documents, setDocuments] = useState([]);
