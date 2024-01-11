@@ -21,6 +21,12 @@ public interface DocumentRepo extends JpaRepository<Document, Integer> {
 
     /**
      *
+     * @return a list of documents ordered by most recently modified
+     */
+    List<Document> findAllByOrderByModificationDateDesc();
+
+    /**
+     *
      * @param userId the id of the user
      * @return all documents created by that user
      *
