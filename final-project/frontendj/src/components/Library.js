@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import './Library.css';
 import { useNavigate } from 'react-router-dom';
+import CreateDocument from "../pages/CreateDocument";
+import CreateDocumentIcon from "./CreateDocumentIcon";
 
 function Document({ ...docDetails }) {
     // formatting date from api to Day Month, Year (i.e. 4 January, 2024)
@@ -81,6 +83,7 @@ const Library = () => {
 
         <div className='Library'>
             {/* put create here */}
+            <p><CreateDocumentIcon/></p>
             {documents.map((doc) => { // for every doc in documents,
                 return <><Document {...doc} /></> // make a document component & pass in doc's data to it
             })}

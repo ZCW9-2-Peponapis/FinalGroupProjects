@@ -9,6 +9,7 @@ import EditorPage from "../pages/EditorPage";
 import './MenuBar.css';
 import Logout from "./Logout"; // Import the styles
 import TextEditor from './TextEditor';
+import CreateDocument from "../pages/CreateDocument";
 
 const UserMenu = () => {
     return (
@@ -51,6 +52,7 @@ const RoutePath = () => {
                     <Route path="/register" exact element={<RegisterPage />} />
                     <Route path="login" exact element={<LoginPage />} />
                     <Route path="/logout" exact element={<Logout/>} />
+                    <Route path="/edit" exact element={<CreateDocument/>} />
                 </Routes>
             </div>
         // </Router> 
