@@ -24,6 +24,7 @@ const Login = ({ onLogin }) => {
                 const userData = await response.json();
 
                 // Save user session in localStorage
+                localStorage.setItem('userId', JSON.stringify(userData.id));
                 localStorage.setItem('userName', JSON.stringify(userData.userName));
                 localStorage.setItem('userInfo', JSON.stringify(userData));
 

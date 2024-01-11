@@ -1,0 +1,8 @@
+.editor{
+   position: absolute;
+}
+
+#save-btn:hover {
+    margin: 50px;
+    cursor:pointer;
+}

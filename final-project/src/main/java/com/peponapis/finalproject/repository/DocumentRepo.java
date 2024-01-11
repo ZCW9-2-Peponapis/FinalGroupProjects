@@ -18,6 +18,13 @@ public interface DocumentRepo extends JpaRepository<Document, Integer> {
      */
     @Query("SELECT d FROM Document d WHERE d.title LIKE %?1%") // searching titles for now
     List<Document> searchDocuments(String filter);
+    // can possibly change this to findAllByTitleContaining(String filter)
+
+    /**
+     *
+     * @return a list of documents ordered by most recently modified
+     */
+    List<Document> findAllByOrderByModificationDateDesc();
 
     /**
      *

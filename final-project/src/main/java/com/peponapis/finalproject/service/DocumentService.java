@@ -1,6 +1,7 @@
 package com.peponapis.finalproject.service;
 
 import com.peponapis.finalproject.dtos.DocumentDTO;
+import com.peponapis.finalproject.dtos.UserDTO;
 import com.peponapis.finalproject.model.Document;
 import com.peponapis.finalproject.model.UserEntity;
 import com.peponapis.finalproject.repository.DocumentRepo;
@@ -45,12 +46,21 @@ public class DocumentService {
         User user = (User) authentication.getPrincipal();
 
         UserEntity docAuthor = userRepo.findByUserName(user.getUsername()).get();
+<<<<<<< HEAD
         this.documentRepo.save(document);
         docAuthor.addDocument(document);
         document.setUser(docAuthor);
         this.userRepo.save(docAuthor);
         this.documentRepo.save(document);
 
+=======
+
+        this.documentRepo.save(document); // saving the document into the db first
+        docAuthor.addDocument(document); // adding the document to user
+        document.setUser(docAuthor); // adding the user to doc
+        this.userRepo.save(docAuthor); // saving user with updated document list
+        this.documentRepo.save(document); // saving document again, this time with user
+>>>>>>> bfd1f312e3cdb515872636b90c6b39dbf465767e
 
         DocumentDTO doc = new DocumentDTO();
         doc.setAuthorId(document.getUser().getUserId());
@@ -78,7 +88,7 @@ public class DocumentService {
      */
     public List<DocumentDTO> getAllDocuments(){
 
-        return this.documentRepo.findAll().stream().map(DocumentDTO::new).collect(Collectors.toList());
+        return this.documentRepo.findAllByOrderByModificationDateDesc().stream().map(DocumentDTO::new).collect(Collectors.toList());
     }
 
     /**
