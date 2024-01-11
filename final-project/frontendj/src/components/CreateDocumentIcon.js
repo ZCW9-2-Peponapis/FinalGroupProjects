@@ -18,6 +18,9 @@ const CreateDocumentIcon = () => {
     const handleClick = async () => {
         if (isLoggedIn()){
             console.log("You can create!")
+
+            // Post request, untitled and blank body
+            // Form for create button
         } else {
             console.log("You cannot create!")
         }

@@ -11,8 +11,6 @@ function MainPage() {
         <div className="App">
             <header className="App-header">
                 Welcome to Zip Docs
-                <CreateDocumentIcon/>
-
 
 
 

@@ -3,6 +3,7 @@
     flex-wrap: wrap;
     width: 90%;
     align-items: center;
+  margin-left: 100px;
 }
 .card {
     width: 252px;
