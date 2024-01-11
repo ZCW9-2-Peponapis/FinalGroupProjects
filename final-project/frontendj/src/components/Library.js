@@ -80,6 +80,7 @@ const Library = () => {
         <p>THIS IS THE LIBRARY COMPONENT!</p>
 
         <div className='Library'>
+            {/* put create here */}
             {documents.map((doc) => { // for every doc in documents,
                 return <><Document {...doc} /></> // make a document component & pass in doc's data to it
             })}

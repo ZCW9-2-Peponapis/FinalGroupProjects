@@ -28,6 +28,7 @@ const UserComponent = () => {
         // Perform logout actions, e.g., clearing local storage
         localStorage.removeItem('userInfo');
         localStorage.removeItem('userName');
+        localStorage.removeItem('userId');
         // Update the state to reflect the logout
         setShowLoginMenu(false);
     };

@@ -7,7 +7,8 @@ const TextEditor = (id) => {
     // https://davidj-fertitta.medium.com/an-ultra-quick-guide-to-quill-js-1aae1ac59d56
     const [content, setContent] = useState('');
     const [document, setDocument] = useState('');
-    let canEdit = true;
+    let userId = localStorage.getItem('userId');
+    const [canEdit, setCanEdit] = useState(false);
 
     // fetching document from backend
     useEffect(() => {
@@ -19,14 +20,12 @@ const TextEditor = (id) => {
         }).then((data) => {
             setContent(data.body);
             setDocument(data);
-            console.log("user id: " + sessionStorage.getItem("userId"));
-            canEdit = sessionStorage.getItem('userId') === document.authorId;
-            console.log("document author id:" + data.authorId)
-            console.log("can edit boolean:" + canEdit)
+            setCanEdit(userId == data.authorId);
         });
     }, []); // REMEMBER THIS ENDING PART, OR ELSE IT'LL FETCH FOREVER
 
     const handleChange = (value) => {
+        console.log(value);
         setContent(value);
         //console.log(value);
     };
@@ -77,6 +76,7 @@ const TextEditor = (id) => {
         }}>
             <h1>Text Editor</h1>
             <h2>{document.title}</h2>
+            <button id="save-btn" onClick={handleSave}>Save</button>
             <ReactQuill
              readOnly = {!canEdit}
                 value={content}
@@ -89,7 +89,7 @@ const TextEditor = (id) => {
                 {/* <p>Content:</p>
                 <div dangerouslySetInnerHTML={{ __html: content }} /> */}
             </div>
-            <button id="save-btn" onClick={handleSave}>Save</button>
+            
             {/* <button onClick={() => setReadOnly(!readOnly)}>
                 {readOnly ? 'Enable Editing' : 'Disable Editing'}
             </button> */}
