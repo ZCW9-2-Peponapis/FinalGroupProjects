@@ -1,3 +1,5 @@
+
+import CreateDocumentIcon from "../components/CreateDocumentIcon";
 import { Outlet } from "react-router-dom";
 import Library from "../components/Library";
 
@@ -8,9 +10,12 @@ function MainPage() {
         <Outlet/>
         <div className="App">
             <header className="App-header">
+                Welcome to Zip Docs
+                <CreateDocumentIcon/>
 
 
-                    Welcome to Zip Docs
+
+
                     <Library/>
 
 

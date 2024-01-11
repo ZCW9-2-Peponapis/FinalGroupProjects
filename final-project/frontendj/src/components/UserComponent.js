@@ -13,6 +13,10 @@ const UserComponent = () => {
 
     const jsonObject = JSON.parse(jsonString);
 
+    const refreshPage = () => {
+        window.location.reload();
+    }
+
     const [showLoginMenu, setShowLoginMenu] = useState(false);
     const [showRegister, setShowRegister] = useState(false);
 
@@ -31,6 +35,8 @@ const UserComponent = () => {
         localStorage.removeItem('userId');
         // Update the state to reflect the logout
         setShowLoginMenu(false);
+        {refreshPage()}
+
     };
 
     const handleRegister = () => {

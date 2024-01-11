@@ -47,11 +47,13 @@ public class DocumentService {
 
         UserEntity docAuthor = userRepo.findByUserName(user.getUsername()).get();
 
+
         this.documentRepo.save(document); // saving the document into the db first
         docAuthor.addDocument(document); // adding the document to user
         document.setUser(docAuthor); // adding the user to doc
         this.userRepo.save(docAuthor); // saving user with updated document list
         this.documentRepo.save(document); // saving document again, this time with user
+
 
         DocumentDTO doc = new DocumentDTO();
         doc.setAuthorId(document.getUser().getUserId());
