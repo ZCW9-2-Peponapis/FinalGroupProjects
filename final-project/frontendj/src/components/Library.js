@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './Library.css';
+import { useNavigate } from 'react-router-dom';
 
 // TBD: make this exportable so that it can also be reused in the page for search results
 function Document({ ...docDetails }) {
@@ -16,20 +17,20 @@ function Document({ ...docDetails }) {
 
     // LOOK AT THIS LATER for passing doc id to the editor/view page
     // https://stackoverflow.com/questions/72004170/how-to-pass-id-in-route-react
-    /*
+
         let navigate = useNavigate();
         const routeToDocumentView = () => {
-            let path = `whateverPathItIs`;
+            let path = `/document/` + docDetails.id;
             navigate(path);
         }
-    */
+
 
     return (
         <>
         {/* TBA: make the entire thing a button, route to view document page
         something something <button onClick()={routeToDocumentView}>
         */}
-            <div className="card">
+            <div className="card" onClick={() => routeToDocumentView()}>
                 <div className="img">
                     <div className="save">
                         <svg className="svg" width="683" height="683" viewBox="0 0 683 683" fill="none" xmlns="http://www.w3.org/2000/svg">

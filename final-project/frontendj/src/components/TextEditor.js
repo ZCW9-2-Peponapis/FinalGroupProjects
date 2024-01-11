@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'; // Import the styles
 
-const TextEditor = () => {
+const TextEditor = (id) => {
     // read article to maybe parse string from quill
     // https://davidj-fertitta.medium.com/an-ultra-quick-guide-to-quill-js-1aae1ac59d56
     const [content, setContent] = useState('');
@@ -11,14 +11,17 @@ const TextEditor = () => {
 
     // fetching document from backend
     useEffect(() => {
-        fetch('http://localhost:8080/document/view/253', {
+        fetch('http://localhost:8080/document/view/'+id.id, {
             method: 'GET',
         }).then((res) => {
             return res.json();
         }).then((data) => {
             setContent(data.body);
             setDocument(data);
-            canEdit = sessionStorage.getItem('user_id') === document.authorId;
+            // console.log("user id: " + sessionStorage.getItem('userId'));
+            canEdit = sessionStorage.getItem('userId') === document.authorId;
+            // console.log("document author id:" + data.authorId)
+            // console.log("can edit boolean:" + canEdit)
         });
     }, []); // REMEMBER THIS ENDING PART, OR ELSE IT'LL FETCH FOREVER
 
@@ -71,7 +74,7 @@ const TextEditor = () => {
             <h1>Text Editor</h1>
             <h2>{document.title}</h2>
             <ReactQuill
-            // readOnly = {!canEdit}
+             readOnly = {!canEdit}
                 value={content}
                 onChange={handleChange}
                 modules={modules}
