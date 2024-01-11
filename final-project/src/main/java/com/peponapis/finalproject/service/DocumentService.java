@@ -49,6 +49,8 @@ public class DocumentService {
         docAuthor.addDocument(document);
         document.setUser(docAuthor);
         this.userRepo.save(docAuthor);
+        this.documentRepo.save(document);
+
 
         DocumentDTO doc = new DocumentDTO();
         doc.setAuthorId(document.getUser().getUserId());

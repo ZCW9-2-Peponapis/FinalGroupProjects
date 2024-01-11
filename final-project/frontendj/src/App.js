@@ -8,6 +8,8 @@ import UserComponent from "./components/UserComponent";
 import Register from "./components/Register";
 import TextEditor from './components/TextEditor';
 import LoginPage from './pages/LoginPage';
+import CreateDoc from './components/CreateDocumentIcon';
+import CreateDocumentIcon from "./components/CreateDocumentIcon";
 
 
 
@@ -24,9 +26,8 @@ function App() {
               >
                   Zip Docs
               </a>
+
               <UserComponent/>
-              <Library />
-              <TextEditor />
               <RoutePath/>
           </header>
       </div>

@@ -24,6 +24,7 @@ const MenuBar = () => {
         <div className="menu-bar">
             <div className="menu-items">
                 <Link to="/edit" className="menu-item">Edit</Link>
+                <Link to="/" className="menu-item">Home</Link>
             </div>
             <UserMenu /> {/* Render the UserMenu component */}
         </div>

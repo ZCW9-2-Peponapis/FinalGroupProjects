@@ -1,0 +1,18 @@
+#createDocumentIcon{
+    position: absolute;
+    height: 15vmin;
+
+}
+
+
+.image{
+    position: absolute;
+    height: 15vmin;
+    left: 300px;
+    top: 115px;
+    transition: transform 0.3s; /* Add smooth transition for better user experience */
+}
+
+.image:hover {
+    transform: scale(1.1); /* Increase the scale to enlarge the image */
+}

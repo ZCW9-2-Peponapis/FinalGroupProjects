@@ -6,6 +6,10 @@ const Login = ({ onLogin }) => {
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
 
+    const refreshPage = () => {
+        window.location.reload();
+    }
+
     const handleLogin = async () => {
         try {
             const response = await fetch('http://localhost:8080/users/login', {
@@ -30,8 +34,10 @@ const Login = ({ onLogin }) => {
 
                 console.log(localStorage.getItem('userInfo'));
 
+
                 // Redirect or show success message
                 console.log('Login successful');
+                {refreshPage()}
             } else {
                 console.error('Login failed');
                 // Handle login failure
