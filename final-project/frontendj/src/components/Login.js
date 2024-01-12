@@ -29,6 +29,7 @@ const Login = ({ onLogin }) => {
                 localStorage.setItem('userName', JSON.stringify(userData.userName));
                 localStorage.setItem('userInfo', JSON.stringify(userData));
 
+                // https://medium.com/@amavictor/storing-tokens-in-cookies-with-react-93a5a818c3a8
                 // Saving token into cookie
                 // there is an expires field for cookie. if omitted, it's a session cookie. if not, the number is how many days it lasts
                 // setting secure to false bc we're on localhost

@@ -58,9 +58,9 @@ function Document({ ...docDetails }) {
     )
 }
 
-// TBD: pass in some string so that it can be used for the path -- will make this reusable between
-//      search and main page
+
 // resources: https://www.freecodecamp.org/news/how-to-fetch-api-data-in-react/
+// {param} makes it so that we set props.param the value that we pass in
 const Library = ({urlPath}) => {
     const [documents, setDocuments] = useState([]);
 
