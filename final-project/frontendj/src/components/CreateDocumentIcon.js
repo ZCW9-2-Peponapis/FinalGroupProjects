@@ -2,12 +2,18 @@
 import add from '../add.png';
 import './CreateDocumentIcon.css';
 import {Link} from "react-router-dom";
+import {useState} from "react";
 
 const CreateDocumentIcon = () => {
+
+    const [isFormOpen, setFormOpen] = useState(false);
+    const [title, setDocumentTitle] = useState('');
+    const [body, setDocumentBody] = useState('');
 
     const isLoggedIn = () => {
         return localStorage.getItem('userInfo') !== null;
     }
+
 
     const refreshPage = () => {
         window.location.reload(); // Maybe used later
@@ -15,28 +21,66 @@ const CreateDocumentIcon = () => {
 
 
 
+
+
     const handleClick = async () => {
         if (isLoggedIn()){
-            console.log("You can create!")
+            setFormOpen(true);
 
-            // Post request, untitled and blank body
-            // Form for create button
         } else {
             console.log("You cannot create!")
         }
     };
 
+    const openForm = () => {
+        setFormOpen(true);
+    }
+    const closeForm = () => {
+        setFormOpen(false);
+    }
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+
+        try {
+            console.log("IM HERE FIRST");
+
+
+            const document = {
+            "title": title, "body": body
+            }
+
+            console.log("IM HERE");
+            const response = await fetch('http://localhost:8080/document/create', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(document)
+
+            });
+
+
+
+        } catch (error) {
+            console.log('Cannot create document:', error.message);
+        }
+        closeForm();
+    };
+
+
+
     return (
         <div>
             {isLoggedIn() ? (
-            <Link to="/edit" className="createDocumentIcon">
                 <img className="image"
                     src={add}
                     alt="Create Document"
                     onClick={handleClick}
                     style={{cursor:'pointer'}}
                 />
-            </Link>
+
                 ) : (
 
                         <img
@@ -46,6 +90,27 @@ const CreateDocumentIcon = () => {
                         />
 
                 )}
+
+            {isFormOpen && (
+                <div className="form-popup" id="myForm">
+                    <form onSubmit={handleSubmit} className="form-container">
+                        <h1>Create Document</h1>
+
+                        <input
+                            type="text"
+                            placeholder="Enter Document Title"
+                            name="docTitle"
+                            value={title}
+                            onChange={(e) => setDocumentTitle(e.target.value)}
+                        />
+                        <p>
+
+                        <button type="submit" className="btn">Create</button>
+                        <button type="button" className="btncancel" onClick={closeForm}>Close</button>
+                        </p>
+                    </form>
+                </div>
+            )}
         </div>
     );
 };

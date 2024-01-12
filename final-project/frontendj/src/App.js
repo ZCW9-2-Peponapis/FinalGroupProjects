@@ -8,6 +8,7 @@ import Register from "./components/Register";
 import TextEditor from './components/TextEditor';
 import LoginPage from './pages/LoginPage';
 import { useNavigate } from 'react-router-dom';
+import NaviBar from "./components/NaviBar";
 
 
 
@@ -31,10 +32,12 @@ function App() {
               >
                   Zip Docs
               </a>
-
-              <UserComponent/>
-              <RoutePath/>
           </header>
+
+
+          <NaviBar/>
+          <UserComponent/>
+          <RoutePath/>
       </div>
 
 

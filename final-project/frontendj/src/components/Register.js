@@ -24,7 +24,13 @@ const Register = () => {
         }
 
         try {
-            // Your registration logic here
+            const response = await fetch ('http://localhost:8080/users/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type' : 'application/json',
+                },
+                body: JSON.stringify({name, userName, password}),
+            });
             console.log('Registration success');
 
             setRegistrationSuccess(true);
