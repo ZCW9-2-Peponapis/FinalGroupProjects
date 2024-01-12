@@ -33,7 +33,8 @@ function SearchBar({placeholder, dataResult}) {
             console.log(`filter result= `) 
              console.log(result)
             console.log(resultString)
-            navigate(`/search/${resultString}`)
+            console.log(param)
+            navigate(`/search/${param}`)
         }
 
          return(
