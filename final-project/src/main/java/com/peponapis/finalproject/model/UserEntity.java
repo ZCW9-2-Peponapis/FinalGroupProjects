@@ -16,7 +16,7 @@ import java.util.List;
 @Table(name = "user")
 public class UserEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userId; // unique id for users
     private String name; // name for the user
     private String userName; // username for the user (login info)
