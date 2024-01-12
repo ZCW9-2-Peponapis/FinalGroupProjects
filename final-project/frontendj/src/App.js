@@ -12,6 +12,7 @@ import NaviBar from "./components/NaviBar";
 
 
 
+
 function App() {
     let navigate = useNavigate();
     const routeToMainPage = () => {
@@ -31,6 +32,8 @@ function App() {
                   rel="noopener noreferrer"
               >
                   Zip Docs
+
+
               </a>
           </header>
 
@@ -41,7 +44,10 @@ function App() {
       </div>
 
 
+
+
   );
 }
 
 export default App;
+
