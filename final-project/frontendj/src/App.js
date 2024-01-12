@@ -9,6 +9,8 @@ import TextEditor from './components/TextEditor';
 import LoginPage from './pages/LoginPage';
 import { useNavigate } from 'react-router-dom';
 import NaviBar from "./components/NaviBar";
+//import {RoutePath} from "./components/RoutePath";
+import Searchbar from "./components/Searchbar";
 
 
 
@@ -22,6 +24,7 @@ function App() {
     }
 
   return (
+
       <div className="App">
           <header className="App-header">
               <img src={googledoc} className="App-logo" alt="logo" onClick={routeToMainPage}/>
@@ -39,6 +42,9 @@ function App() {
 
 
           <NaviBar/>
+          <div className="App">
+                      <Searchbar placeholder="Enter a Keyword"/>
+                       </div>
           <UserComponent/>
           <RoutePath/>
       </div>
@@ -47,6 +53,8 @@ function App() {
 
 
   );
+
+
 }
 
 export default App;
