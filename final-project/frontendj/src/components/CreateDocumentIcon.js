@@ -3,6 +3,7 @@ import add from '../add.png';
 import './CreateDocumentIcon.css';
 import {Link} from "react-router-dom";
 import {useState} from "react";
+import Cookies from 'js-cookie';
 
 const CreateDocumentIcon = () => {
 
@@ -56,11 +57,14 @@ const CreateDocumentIcon = () => {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    Authorization: 'Bearer '+Cookies.get('token'),
                 },
                 body: JSON.stringify(document)
 
             });
 
+
+        refreshPage();
 
 
         } catch (error) {
