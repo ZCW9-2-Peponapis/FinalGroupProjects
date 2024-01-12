@@ -1,5 +1,5 @@
 import "./Searchbar.css";
-import SearchIcon from '@mui/icons-material/Search';
+
 import { Button } from "@mui/material";
 import React, {useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
@@ -45,7 +45,7 @@ function SearchBar({placeholder, dataResult}) {
         onChange={inputChange}
         />
         <div className="searchIcon">
-        <SearchIcon/>
+        
         <button onClick={handleButtonclick}> search
         </button>
         </div>
