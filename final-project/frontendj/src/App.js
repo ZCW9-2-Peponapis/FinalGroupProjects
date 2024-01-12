@@ -37,17 +37,12 @@ function App()  {
                   Zip Docs
                   </a>
 
-                <div className="App">
-                          <Searchbar placeholder="Enter a Keyword"/>
-                           </div>
-
-              <UserComponent/>
-              <RoutePath/>
           </header>
 
-
           <NaviBar/>
-          
+        
+          <UserComponent/>
+          <RoutePath/>
       </div>
 
 
