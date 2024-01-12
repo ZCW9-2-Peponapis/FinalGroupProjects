@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 105px;
+  margin-top: 50px;
 }
 
 .parent-container {
@@ -32,5 +32,5 @@ input:focus{
 }
 
 .searchIcon svg {
-   front-size: 35px;
+   font-size: 35px;
 }

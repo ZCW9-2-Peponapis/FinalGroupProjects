@@ -97,7 +97,7 @@ const TextEditor = (id) => {
     return (
         <div class="editor" style={{
             position: 'absolute', left: '50%', top: '25%',
-            transform: 'translate(-50%, -15%)'
+            transform: 'translate(-50%, -5%)'
         }}>
             <h1>Text Editor</h1>
             <h2>{title}</h2>
