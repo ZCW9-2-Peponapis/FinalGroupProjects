@@ -1,6 +1,6 @@
 import "./Searchbar.css";
-
-import { Button } from "@mui/material";
+import SearchIcon from '@mui/icons-material/Search';
+import { Button } from "@mui/material"
 import React, {useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -45,15 +45,13 @@ function SearchBar({placeholder, dataResult}) {
         onChange={inputChange}
         />
         <div className="searchIcon">
-        
-        <button onClick={handleButtonclick}> search
+        <button style={{ fontSize: '16px', padding: '10px', background: 'linear-gradient(45deg, #e8e5e5, #e06f91, #ad92ff)' }} onClick={handleButtonclick}> search
         </button>
         </div>
         </div>
         <div className="dataResult"></div>
         </div>
         </div>
-
 );
 }
 
