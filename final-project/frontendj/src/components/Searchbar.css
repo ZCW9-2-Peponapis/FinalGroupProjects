@@ -5,6 +5,14 @@
   margin-top: 105px;
 }
 
+.parent-container {
+  height: 0vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .search input {
    background-color: pink;
    border: 0;
