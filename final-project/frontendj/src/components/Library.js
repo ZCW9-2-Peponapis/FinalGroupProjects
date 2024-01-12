@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import './Library.css';
 import { useNavigate } from 'react-router-dom';
-import CreateDocument from "../pages/CreateDocument";
 import CreateDocumentIcon from "./CreateDocumentIcon";
 
 function Document({ ...docDetails }) {
@@ -83,7 +82,7 @@ const Library = () => {
 
         <div className='Library'>
             {/* put create here */}
-            <p><CreateDocumentIcon/></p>
+            <CreateDocumentIcon/>
             {documents.map((doc) => { // for every doc in documents,
                 return <><Document {...doc} /></> // make a document component & pass in doc's data to it
             })}
