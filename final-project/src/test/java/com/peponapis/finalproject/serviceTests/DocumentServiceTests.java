@@ -55,7 +55,7 @@ public class DocumentServiceTests {
         Mockito.mockConstruction(DocumentDTO.class, (mock, context) -> {});
 
         // assert
-        Assertions.assertThat(this.documentService.updateDocument(documentToSave)).isNotNull();
+        Assertions.assertThat(this.documentService.updateDocument(dto)).isNotNull();
     }
 
     @Test

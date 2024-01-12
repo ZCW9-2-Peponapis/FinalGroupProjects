@@ -90,7 +90,7 @@ public class DocumentControllerTests {
         String requestBody = "{\"id\":1, \"title\":\"Title1\", \"body\":\"Body1\", \"userId\":123}";
 
         // when
-        when(this.documentService.updateDocument(document)).thenReturn(dto);
+        when(this.documentService.updateDocument(dto)).thenReturn(dto);
 
         // assert
         this.mockMvc.perform(patch("/document/update")
