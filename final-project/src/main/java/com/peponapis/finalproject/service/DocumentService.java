@@ -17,6 +17,7 @@ import javax.print.Doc;
 import java.security.Principal;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 /**
@@ -102,9 +103,9 @@ public class DocumentService {
      * @param filter search-term to filter documents by
      * @return list of documents containing that search-term
      */
-    public List<Document> searchDocuments(String filter){
+    public List<DocumentDTO> searchDocuments(String filter){
 
-        return this.documentRepo.searchDocuments(filter);
+        return this.documentRepo.searchDocuments(filter).stream().map(DocumentDTO:: new).collect(Collectors.toList());
     }
 
     // Taking this out... DocRepo for explanation

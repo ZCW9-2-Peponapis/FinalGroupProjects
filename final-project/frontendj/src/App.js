@@ -8,6 +8,7 @@ import Register from "./components/Register";
 import TextEditor from './components/TextEditor';
 import LoginPage from './pages/LoginPage';
 import { useNavigate } from 'react-router-dom';
+import Searchbar from "./components/Searchbar";
 
 
 
@@ -31,6 +32,10 @@ function App() {
               >
                   Zip Docs
               </a>
+
+                <div className="App">
+                          <Searchbar placeholder="Enter a Keyword"/>
+                           </div>
 
               <UserComponent/>
               <RoutePath/>

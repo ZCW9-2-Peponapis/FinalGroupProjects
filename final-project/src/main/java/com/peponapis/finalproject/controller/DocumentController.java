@@ -69,7 +69,7 @@ public class DocumentController {
      * @return list of documents matching the search-term
      */
     @GetMapping("/search")
-    public List<Document> searchDocuments(@RequestParam(value = "filter") String filter){
+    public List<DocumentDTO> searchDocuments(@RequestParam(value = "filter") String filter){
         return this.documentService.searchDocuments(filter);
     }
 
