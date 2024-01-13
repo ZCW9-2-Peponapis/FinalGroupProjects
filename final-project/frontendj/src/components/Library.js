@@ -78,7 +78,7 @@ const Library = ({urlPath}) => {
 
     return (
         <>
-        <p>THIS IS THE LIBRARY COMPONENT!</p>
+
 
         <div className='Library'>
             {/* put create here */}

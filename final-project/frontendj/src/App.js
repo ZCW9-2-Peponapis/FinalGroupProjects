@@ -43,9 +43,6 @@ function App() {
 
 
           <NaviBar/>
-          <div className="App">
-                      <Searchbar placeholder="Enter a Keyword"/>
-                       </div>
           <UserComponent/>
           <RoutePath/>
       </div>

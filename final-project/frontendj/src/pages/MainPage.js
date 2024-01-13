@@ -2,6 +2,7 @@
 import CreateDocumentIcon from "../components/CreateDocumentIcon";
 import { Outlet } from "react-router-dom";
 import Library from "../components/Library";
+import Searchbar from "../components/Searchbar";
 
 
 function MainPage() {
@@ -14,13 +15,16 @@ function MainPage() {
             <header className="App-header">
                 Welcome to Zip Docs
 
+                <div className="App">
+                    <Searchbar placeholder="Enter a Keyword"/>
+                </div>
 
-                    <Library urlPath={path}/>
+                <Library urlPath={path}/>
 
 
             </header>
         </div>
-        </> 
+        </>
     );
 }
 
