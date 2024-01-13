@@ -70,7 +70,6 @@ const TextEditor = (id) => {
     const modules = {
         toolbar: [
             [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-            [{ 'color': [] }, { 'background': [] }],
             ['bold', 'italic', 'underline', 'strike'],
             [{ 'list': 'ordered' }, { 'list': 'bullet' }],
             ['link', 'image', 'video'],
@@ -81,8 +80,6 @@ const TextEditor = (id) => {
     // Define the formats
     const formats = [
         'header',
-        'color',
-        'background',
         'bold',
         'italic',
         'underline',
