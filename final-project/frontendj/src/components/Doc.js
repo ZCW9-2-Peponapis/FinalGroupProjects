@@ -1,10 +1,18 @@
-import { useEffect, useState } from 'react';
-import './Library.css';
-import { useNavigate } from 'react-router-dom';
-import CreateDocumentIcon from "./CreateDocumentIcon";
+ import { useNavigate } from "react-router-dom";
+ import './Library.css';
+ 
+ const Doc= ({docDetails}) => {
+       let navigate = useNavigate();
+    const routeToDocumentView = () => {
+        let path = `/document/` + docDetails.id;
+        navigate(path);
+    }
 
-function Document({ ...docDetails }) {
-    // formatting date from api to Day Month, Year (i.e. 4 January, 2024)
+    if (!docDetails){
+        return
+    }
+
+        // formatting date from api to Day Month, Year (i.e. 4 January, 2024)
     const date = new Date(docDetails.modificationDate)
     const formattedDate = date.toLocaleDateString("en-GB", {
         day: "numeric",
@@ -12,16 +20,11 @@ function Document({ ...docDetails }) {
         year: "numeric"
     })
 
+
     // LOOK AT THIS LATER for passing doc id to the editor/view page
     // https://stackoverflow.com/questions/72004170/how-to-pass-id-in-route-react
 
-        let navigate = useNavigate();
-        const routeToDocumentView = () => {
-            let path = `/document/` + docDetails.id;
-            navigate(path);
-        }
-
-
+ 
     return (
         <>
         {/* TBA: make the entire thing a button, route to view document page
@@ -56,40 +59,6 @@ function Document({ ...docDetails }) {
             </div>
         </>
     )
-}
 
-
-// resources: https://www.freecodecamp.org/news/how-to-fetch-api-data-in-react/
-// {param} makes it so that we set props.param the value that we pass in
-const Library = ({urlPath}) => {
-    const [documents, setDocuments] = useState([]);
-
-    useEffect(() => {
-        // fetch request to our backend to get documents
-        fetch('http://localhost:8080/document/' + urlPath, {
-            method: 'GET',
-        }).then((res) => {
-            return res.json(); // returning the response as a json... idk what this does
-        }).then((data) => { // get the data from the response
-            //console.log(data);
-            setDocuments(data); // save the data into our variable documents
-        });
-    }, []);
-
-    return (
-        <>
-
-
-        <div className='Library'>
-            {/* put create here */}
-            <CreateDocumentIcon/>
-            {documents.map((doc) => { // for every doc in documents,
-                return <><Document {...doc} /></> // make a document component & pass in doc's data to it
-            })}
-        </div>
-        </>
-    )
-};
-
-export default Library
-
+} 
+export default Doc 

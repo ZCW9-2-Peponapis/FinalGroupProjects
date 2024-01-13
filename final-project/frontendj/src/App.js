@@ -9,13 +9,12 @@ import TextEditor from './components/TextEditor';
 import LoginPage from './pages/LoginPage';
 import { useNavigate } from 'react-router-dom';
 import NaviBar from "./components/NaviBar";
-//import {RoutePath} from "./components/RoutePath";
 import Searchbar from "./components/Searchbar";
 
 
 
 
-function App() {
+function App()  {
     let navigate = useNavigate();
     const routeToMainPage = () => {
         console.log("clicked on image")
@@ -36,13 +35,14 @@ function App() {
                   rel="noopener noreferrer"
               >
                   Zip Docs
+                  </a>
 
-
-              </a>
           </header>
 
-
           <NaviBar/>
+
+        
+
           <UserComponent/>
           <RoutePath/>
       </div>

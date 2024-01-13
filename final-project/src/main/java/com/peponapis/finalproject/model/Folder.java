@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Folder {
 @Id
-@GeneratedValue(strategy = GenerationType.AUTO)
+@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int folderId;
     private String title;
     private Date creationDate;
