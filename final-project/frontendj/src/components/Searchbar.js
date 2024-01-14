@@ -1,6 +1,4 @@
 import "./Searchbar.css";
-import SearchIcon from '@mui/icons-material/Search';
-import { Button } from "@mui/material"
 import React, {useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 

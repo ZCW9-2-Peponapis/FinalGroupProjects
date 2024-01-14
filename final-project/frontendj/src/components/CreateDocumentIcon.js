@@ -63,6 +63,8 @@ const CreateDocumentIcon = () => {
 
             });
 
+            refreshPage();
+
 
 
         } catch (error) {
