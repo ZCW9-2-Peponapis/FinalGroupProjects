@@ -13,7 +13,7 @@ import java.util.Date;
 public class Document {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     int id; // unique id for the document
     String title; // name/title of the document
     String body; // the text within the document
