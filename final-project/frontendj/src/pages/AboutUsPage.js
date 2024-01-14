@@ -1,5 +1,6 @@
 import React from 'react';
 import './AboutUsPage.css';
+import userPic from '../user.png';
 
 function AboutUsPage (){
 
@@ -16,7 +17,7 @@ function AboutUsPage (){
             <div className="row">
                 <div className="column">
                     <div className="card">
-                        <img src='' alt="Tam" style={{ width: '100%' }} />
+                        <img src={userPic} alt="Tam" style={{ width: '100%' }} />
                         <div className="container">
                             <h2>Tam Maria Doan</h2>
                             <p className="title">Software Developer, Java 9.2</p>
@@ -29,12 +30,12 @@ function AboutUsPage (){
 
                 <div className="column">
                     <div className="card">
-                        <img src='' alt="Christy" style={{ width: '100%' }} />
+                        <img src={userPic} alt="Christy" style={{ width: '100%' }} />
                         <div className="container">
                             <h2>Christianne Edgard</h2>
                             <p className="title">Software Developer, Java 9.2</p>
-                            <p>Description.</p>
-                            <p>email@example.com</p>
+                            <p>Christy loves traveling.</p>
+                            <p>Edgardchristianne@gmail.com</p>
                             <p><button className="button">Contact</button></p>
                         </div>
                     </div>
@@ -42,11 +43,11 @@ function AboutUsPage (){
 
                 <div className="column">
                     <div className="card">
-                        <img src='' alt="Jia" style={{ width: '100%' }} />
+                        <img src={userPic} alt="Jia" style={{ width: '100%' }} />
                         <div className="container">
                             <h2>Hyunji Lee</h2>
                             <p className="title">Software Developer, Java 9.2</p>
-                            <p>Description.</p>
+                            <p>Jia loves hiking, playing tennis, and exploring food places.</p>
                             <p>hyjialee@gmail.com</p>
                             <p><button className="button">Contact</button></p>
                         </div>

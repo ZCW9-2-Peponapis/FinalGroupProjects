@@ -99,15 +99,15 @@ const TextEditor = (id) => {
 
     const handleExportPDF = () => {
         const element = `${content}`;
+        // Exporting the content body from document
         const options = {
-            filename: `${title}_From_ZipDocs.pdf`, // Set your desired file name here
+            filename: `${title}_From_ZipDocs.pdf`, // Export by document title + from ZipDocs
         };
         html2pdf(element, options);
     };
 
     const handleClear = () => {
-
-        if (userId == authorId){
+        if (userId == authorId){  // The user id must match with the author id to clear the document
             setContent('');
         } else {
             console.log("Cannot clear, you are not the owner");
