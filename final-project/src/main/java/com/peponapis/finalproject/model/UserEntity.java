@@ -89,4 +89,8 @@ public class UserEntity {
     public void setFolders(List<Folder> folders) {
         this.folders = folders;
     }
+
+    public void deleteDocument(Document document){
+        this.documents.remove(document);
+    }
 }
