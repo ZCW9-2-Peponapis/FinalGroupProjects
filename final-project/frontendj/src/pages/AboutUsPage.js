@@ -1,6 +1,7 @@
 import React from 'react';
 import './AboutUsPage.css';
 import userPic from '../user.png';
+import jia from '../profiles/hyunji.png'
 
 function AboutUsPage (){
 
@@ -22,33 +23,78 @@ function AboutUsPage (){
                             <p className="title">Software Developer</p>
                             <p>Description.</p>
                             <p>email@example.com</p>
-                            <p><button className="button">Contact</button></p>
+                            <p>
+                                <a href='https://github.com/TamMDoan'
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+
+                                    <button className="button">GitHub</button>
+                                </a>
+                            </p>
+                            <p>
+                                <a href='https://www.linkedin.com/in/tammariadoan/'
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+
+                                    <button className="button">LinkedIn</button>
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </div>
 
                 <div className="column">
                     <div className="card">
-                        <img src={userPic} alt="Christy" style={{ width: '100%' }} />
+                        <img src={userPic} alt="Christy" style={{width: '100%'}}/>
                         <div className="container">
                             <h2>Christianne Edgard</h2>
                             <p className="title">Software Developer</p>
                             <p>Description.</p>
                             <p>Edgardchristianne@gmail.com</p>
-                            <p><button className="button">Contact</button></p>
+                            <p>
+                                <a href='https://github.com/Christy-ED'
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+
+                                    <button className="button">GitHub</button>
+                                </a>
+                            </p>
+                            <p>
+                                <a href='https://www.linkedin.com/in/christianne-edgard/'
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+
+                                    <button className="button">LinkedIn</button>
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </div>
 
                 <div className="column">
                     <div className="card">
-                        <img src={userPic} alt="Jia" style={{ width: '100%' }} />
+                        <img src={jia} alt="Jia" style={{width: '100%'}}/>
                         <div className="container">
                             <h2>Hyunji Lee</h2>
                             <p className="title">Software Developer</p>
                             <p>B.A in Psychology</p>
                             <p>hyjialee@gmail.com</p>
-                            <p><button className="button">Contact</button></p>
+                            <p>
+                                <a href='https://github.com/hyunjialee/'
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+
+                                    <button className="button">GitHub</button>
+                                </a>
+                            </p>
+                            <p>
+                                <a href='https://www.linkedin.com/in/hyunjialee/'
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+
+                                    <button className="button">LinkedIn</button>
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </div>
