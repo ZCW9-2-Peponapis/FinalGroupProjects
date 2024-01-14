@@ -16,7 +16,7 @@ public interface DocumentRepo extends JpaRepository<Document, Integer> {
      * @param filter user-inputted search-term to filter documents by
      * @return a list of documents containing the search-term
      */
-    @Query("SELECT d FROM Document d WHERE d.title LIKE %?1%") // searching titles for now
+    @Query("SELECT d FROM Document d WHERE d.title LIKE %?1% AND d.body LIKE %?1%")
     List<Document> searchDocuments(String filter);
     // can possibly change this to findAllByTitleContaining(String filter)
 
