@@ -4,7 +4,7 @@
     background-color: #333;
     font-family: Arial;
     display: flex; /* Use flexbox to center the items */
-    justify-content: center; /* Center items horizontally */
+    justify-content: left; /* Center items horizontally */
     align-items: center; /* Center items vertically */
     padding-top: 15px;
 }

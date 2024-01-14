@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'; // Import the styles
 import Cookies from 'js-cookie';
+import html2pdf from 'html2pdf.js';
+
 
 const TextEditor = (id) => {
     // read article to maybe parse string from quill
@@ -10,7 +12,7 @@ const TextEditor = (id) => {
     const [document, setDocument] = useState('');
     let userId = localStorage.getItem('userId');
     const [canEdit, setCanEdit] = useState(false);
-    const [title, setTitle] = useState(''); 
+    const [title, setTitle] = useState('');
     const [docId, setDocId] = useState('');
     const [authorId, setAuthorId] = useState('');
 
@@ -61,7 +63,7 @@ const TextEditor = (id) => {
         }).catch((e) => {
             console.log(e);
         })
-        
+
     };
 
     // Define a custom toolbar
@@ -87,12 +89,30 @@ const TextEditor = (id) => {
         'link',
         'image',
         'video',
+        'clean'
     ];
 
     // Set default text color to black
     const styles = {
         color: 'black',
     };
+
+    const handleExportPDF = () => {
+        const element = `${content}`;
+        // Exporting the content body from document
+        const options = {
+            filename: `${title}_From_ZipDocs.pdf`, // Export by document title + from ZipDocs
+        };
+        html2pdf(element, options);
+    };
+
+    const handleClear = () => {
+        if (userId == authorId){  // The user id must match with the author id to clear the document
+            setContent('');
+        } else {
+            console.log("Cannot clear, you are not the owner");
+        }
+    }
 
     return (
         <div class="editor" style={{
@@ -102,19 +122,22 @@ const TextEditor = (id) => {
             <h1>Text Editor</h1>
             <h2>{title}</h2>
             <button id="save-btn" onClick={handleSave}>Save</button>
-            <ReactQuill
-             readOnly = {!canEdit}
-                value={content}
-                onChange={handleChange}
-                modules={modules}
-                formats={formats}
-                style={{ height: '900px', width: '1000px', ...styles }}
+            <button id="export-pdf-btn" onClick={handleExportPDF}>Export as PDF</button>
+            <button id="export-pdf-btn" onClick={handleClear}>Clear</button>
+            <ReactQuill placeholder="Start typing here..."
+                        id='editor'
+                        readOnly={!canEdit}
+                        value={content}
+                        onChange={handleChange}
+                        modules={modules}
+                        formats={formats}
+                        style={{height: '900px', width: '1000px', ...styles}}
             />
             <div>
                 {/* <p>Content:</p>
                 <div dangerouslySetInnerHTML={{ __html: content }} /> */}
             </div>
-            
+
             {/* <button onClick={() => setReadOnly(!readOnly)}>
                 {readOnly ? 'Enable Editing' : 'Disable Editing'}
             </button> */}

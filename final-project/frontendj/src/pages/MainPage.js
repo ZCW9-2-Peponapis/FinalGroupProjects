@@ -2,7 +2,10 @@
 import CreateDocumentIcon from "../components/CreateDocumentIcon";
 import { Outlet } from "react-router-dom";
 import Library from "../components/Library";
+
 import SearchBar from "../components/Searchbar";
+
+
 
 function MainPage() {
     const path = `getAll`;
@@ -20,12 +23,12 @@ function MainPage() {
                       <SearchBar placeholder="Enter a Keyword"/>
                        
 
-                    <Library urlPath={path}/>
+                <Library urlPath={path}/>
 
 
             </header>
         </div>
-        </> 
+        </>
     );
 }
 

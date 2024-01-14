@@ -10,8 +10,11 @@ import './MenuBar.css';
 import Logout from "./Logout"; // Import the styles
 import TextEditor from './TextEditor';
 import CreateDocument from "../pages/CreateDocument";
+
+import AboutUsPage from "../pages/AboutUsPage";
 import SearchBar from './Searchbar';
 import SearchPage from '../pages/SearchPage';
+
 
 const UserMenu = () => {
     return (
@@ -52,6 +55,7 @@ const RoutePath = () => {
                     <Route exact path="/" element={<MainPage />} />
                     <Route path="/document/:id" exact element={<EditorPage />} />
                     <Route path="/register" exact element={<RegisterPage />} />
+                    <Route path="/about" exact element={<AboutUsPage />} />
                     <Route path="login" exact element={<LoginPage />} />
                     <Route path="/logout" exact element={<Logout/>} />
                     <Route path="/edit" exact element={<CreateDocument/>} />

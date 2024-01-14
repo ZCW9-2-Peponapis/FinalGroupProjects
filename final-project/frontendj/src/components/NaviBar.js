@@ -10,7 +10,7 @@ function NaviBar() {
                     <i className="fa fa-caret-down"></i>
                 </button>
                 <div className="dropdown-content">
-                    <a href="#">About Us</a>
+                    <a href="/about">About Us</a>
                     <a href="https://github.com/ZCW9-2-Peponapis/FinalGroupProjects">GitHub Link</a>
                 </div>
             </div>

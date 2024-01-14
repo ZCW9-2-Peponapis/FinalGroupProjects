@@ -78,8 +78,7 @@ const Library = ({urlPath}) => {
 
     return (
         <>
-        {/* library comment was here */}
-        <p></p>
+
 
         <div className='Library'>
             {/* put create here */}

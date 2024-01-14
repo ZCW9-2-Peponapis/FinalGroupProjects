@@ -40,7 +40,9 @@ function App()  {
           </header>
 
           <NaviBar/>
+
         
+
           <UserComponent/>
           <RoutePath/>
       </div>

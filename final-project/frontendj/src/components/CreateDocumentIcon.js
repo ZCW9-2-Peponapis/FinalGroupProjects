@@ -45,7 +45,7 @@ const CreateDocumentIcon = () => {
 
 
         try {
-            console.log("IM HERE FIRST");
+            console.log(Cookies.get('token'));
 
 
             const document = {
@@ -63,8 +63,6 @@ const CreateDocumentIcon = () => {
 
             });
 
-
-        refreshPage();
 
 
         } catch (error) {
