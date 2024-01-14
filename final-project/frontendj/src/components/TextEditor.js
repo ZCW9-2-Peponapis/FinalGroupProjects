@@ -106,7 +106,12 @@ const TextEditor = (id) => {
     };
 
     const handleClear = () => {
-        setContent('');
+
+        if (userId == authorId){
+            setContent('');
+        } else {
+            console.log("Cannot clear, you are not the owner");
+        }
     }
 
     return (
