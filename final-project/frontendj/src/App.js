@@ -22,7 +22,9 @@ function App()  {
         navigate(path);
     }
 
-  return (
+  
+
+return (
 
 
       <div className="App">
@@ -40,12 +42,12 @@ function App()  {
           </header>
 
           <NaviBar/>
-
-        
-
           <UserComponent/>
+      
           <RoutePath/>
       </div>
+
+      
 
 
 

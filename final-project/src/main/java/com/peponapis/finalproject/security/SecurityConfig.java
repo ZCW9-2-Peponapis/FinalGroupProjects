@@ -47,7 +47,8 @@ public class SecurityConfig {
 
         http.authorizeHttpRequests(auth ->
                 // the paths identified here are open to anyone without authentication
-                auth.requestMatchers("/users/**","/docment/update", "/document/getAll","/document/view/**","/document/search/**", "/folder").permitAll()
+                auth.requestMatchers("/users/**","/docment/update", "/document/getAll","/document/view/**","/document/search/**", "/folder,", "/document/getsorted"
+                        ).permitAll()
                         .anyRequest().authenticated()) // to reach any other path, you must be authenticated
                 .csrf(AbstractHttpConfigurer::disable).cors(AbstractHttpConfigurer::disable)
                 .exceptionHandling((e) -> e.authenticationEntryPoint(authEntryPoint))
