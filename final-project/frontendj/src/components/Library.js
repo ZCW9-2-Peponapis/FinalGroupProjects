@@ -28,21 +28,21 @@ function Document({ ...docDetails }) {
         // this is to stop react from doing the onClick event for the 
         // document (routeToDocView) & only do this onClick for the delete button
         e.stopPropagation(); 
-        console.log("pressed the delete button to-be")
+        console.log("pressed the delete button")
         setCreateClicked(true);
-        // open up a menu asking if they're sure (like the create menu)
-        // if they hit yes, call the backend with docDetails.id
-            // refresh window
-        // if no, close the menu
 
     }
 
+    // setting createClicked to false to make the overlay + 
+    // delete confirmation menu go away. works when user hits no or 
+    // out of the menu
     const handleButtonclick = () => {
         if(createClicked){
             setCreateClicked(false)
         }
     }
 
+    // the delete request
     const handleSubmit = () => {
         const token = `Bearer ` + Cookies.get('token');
         // fetch request to our backend to get documents
@@ -59,6 +59,7 @@ function Document({ ...docDetails }) {
             console.log('Error: ' + e);
         });
         
+        // refresh to update docs displayed
         window.location.reload();
     }
 
@@ -68,22 +69,6 @@ function Document({ ...docDetails }) {
             <div className="card" onClick={() => routeToDocumentView()}>
                 <div className="img">
                     {localStorage.getItem('userId') == docDetails.authorId && <div className="save" onClick={(event) => confirmDeletion(event)}>
-                        {/* <svg className="svg" width="683" height="683" viewBox="0 0 683 683" fill="none" xmlns="http://www.w3.org/2000/svg">
-                             <g clipPath="url(#clip0_993_25)">
-                                <mask id="mask0_993_25" maskUnits="userSpaceOnUse" x="0" y="0" width="683" height="683">
-                                     <path d="M0 -0.00012207H682.667V682.667H0V-0.00012207Z" fill="white"></path> 
-                                    
-                                </mask>
-                                <g mask="url(#mask0_993_25)">
-                                    <path d="M148.535 19.9999C137.179 19.9999 126.256 24.5092 118.223 32.5532C110.188 40.5866 105.689 51.4799 105.689 62.8439V633.382C105.689 649.556 118.757 662.667 134.931 662.667H135.039C143.715 662.667 151.961 659.218 158.067 653.09C186.451 624.728 270.212 540.966 304.809 506.434C314.449 496.741 327.623 491.289 341.335 491.289C355.045 491.289 368.22 496.741 377.859 506.434C412.563 541.074 496.752 625.242 524.816 653.348C530.813 659.314 538.845 662.667 547.308 662.667C563.697 662.667 576.979 649.395 576.979 633.019V62.8439C576.979 51.4799 572.48 40.5866 564.447 32.5532C556.412 24.5092 545.489 19.9999 534.133 19.9999H148.535Z" stroke="#CED8DE" strokeWidth="40" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"></path>
-                                </g>
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_993_25">
-                                    <rect width="682.667" height="682.667" fill="white"></rect>
-                                </clipPath>
-                            </defs>
-                        </svg> */}
                         <svg className="trashcan icon-trashcan ct-delete" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 25 24.8">
                             <g className="trashcan-open">
                                 <path d="M18.7,24.4H5.9L4.9,7h14.9L18.7,24.4z M7.6,22.6H17l0.8-13.7h-11L7.6,22.6z"></path>
@@ -131,10 +116,8 @@ function Document({ ...docDetails }) {
             <>
             <div className="overlay" onClick={handleButtonclick}></div>
             <div className="delete-confirmation">
-                {/* <form> */}
                     <h5>Are you sure you want to delete '{docDetails.title}'?</h5>
                     <span><button className='no-delete' onClick={handleButtonclick}>No</button><button className='yes-delete' onClick={handleSubmit}>Yes</button></span>    
-                {/* </form>             */}
             </div>
             </>}
         </>

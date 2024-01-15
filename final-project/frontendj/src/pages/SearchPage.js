@@ -3,10 +3,11 @@ import CreateDocumentIcon from "../components/CreateDocumentIcon";
 import Doc from "../components/Doc";
 import Library from "../components/Library";
 import SearchBar from "../components/Searchbar";
+import { useState } from "react";
 
 
 function SearchPage() { 
-  const filter = useParams();
+  const [filter, setFilter] = useState(useParams());
     // const { search } = useParams(); // Pulling the data out of the URL
     // const results = JSON.parse(decodeURI(search));
     // console.log(search, results); // Fixed variable name
