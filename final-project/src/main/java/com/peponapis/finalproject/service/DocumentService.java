@@ -88,6 +88,12 @@ public class DocumentService {
         return this.documentRepo.findAllByOrderByModificationDateDesc().stream().map(DocumentDTO::new).collect(Collectors.toList());
     }
 
+    public List<DocumentDTO>getSortedDocuments(){
+        
+        return this.documentRepo.findAllByOrderByTitle().stream().map(DocumentDTO::new).collect(Collectors.toList());
+    }
+    
+
     /**
      *
      * @param id id of the document

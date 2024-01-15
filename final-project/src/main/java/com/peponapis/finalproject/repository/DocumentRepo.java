@@ -26,6 +26,8 @@ public interface DocumentRepo extends JpaRepository<Document, Integer> {
      */
     List<Document> findAllByOrderByModificationDateDesc();
 
+    List<Document> findAllByOrderByTitle();
+
     /**
      *
      * @param userId the id of the user

@@ -3,6 +3,8 @@ package com.peponapis.finalproject.controller;
 import com.peponapis.finalproject.dtos.DocumentDTO;
 import com.peponapis.finalproject.model.Document;
 import com.peponapis.finalproject.service.DocumentService;
+
+import org.aspectj.lang.annotation.AfterReturning;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,6 +32,12 @@ public class DocumentController {
     @GetMapping("/getAll")
     public List<DocumentDTO> viewAllDocuments(){
         return this.documentService.getAllDocuments();
+    }
+    
+    
+    @GetMapping("/getsorted")
+    public List<DocumentDTO> sortedDocuments(){
+        return this.documentService.getSortedDocuments();
     }
 
     /**
