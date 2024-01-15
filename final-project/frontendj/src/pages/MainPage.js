@@ -18,7 +18,7 @@ function MainPage() {
             <header className="App-header">
                 
                 
-                <h2>Welcome to Zip Docs</h2>
+                <h2>Welcome to ZipDocs</h2>
                        
                 <SearchBar placeholder="Enter a Keyword"/>
 

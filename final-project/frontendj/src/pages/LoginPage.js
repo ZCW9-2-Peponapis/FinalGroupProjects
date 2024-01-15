@@ -4,7 +4,7 @@ import Login from "../components/Login";
 
 function LoginPage() {
     return (
-        <div className="login-container">
+        <div className="login-container" style={{ padding: '90px' }}>
             <header className="login-menu">
 
                 <h1>Login</h1>

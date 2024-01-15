@@ -3,7 +3,7 @@ import Register from "../components/Register";
 
 function RegisterPage() {
     return (
-        <div><h1>
+        <div style={{ padding: '90px' }}><h1>
                 <Register/>
         </h1>
         </div>

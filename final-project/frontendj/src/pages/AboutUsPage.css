@@ -36,8 +36,9 @@ html {
 
 .about-section {
     padding: 55px;
+    margin-top: 40px;  /*need fix*/
     text-align: center;
-    background-color: #e8decc;
+    background-color: #e7e7e7;
     color: #000000;
 }
 
