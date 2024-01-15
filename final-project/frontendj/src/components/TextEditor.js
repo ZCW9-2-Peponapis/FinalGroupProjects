@@ -66,7 +66,7 @@ const TextEditor = (id) => {
 
     };
 
-    // Define a custom toolbar
+    // Custom toolbar for users to use
     const modules = {
         toolbar: [
             [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
@@ -77,7 +77,7 @@ const TextEditor = (id) => {
         ],
     };
 
-    // Define the formats
+    // Formats for Text Editor
     const formats = [
         'header',
         'bold',

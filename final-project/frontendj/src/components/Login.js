@@ -14,7 +14,7 @@ const Login = ({ onLogin }) => {
     const handleLogin = async () => {
         try {
             const response = await fetch('http://localhost:8080/users/login', {
-                method: 'POST',
+                method: 'POST', // POST Method to UserController username and password must match
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -42,12 +42,11 @@ const Login = ({ onLogin }) => {
                 console.log(localStorage.getItem('userInfo'));
 
 
-                // Redirect or show success message
+
                 console.log('Login successful');
-                {refreshPage()}
+                {refreshPage()} //Refresh page for user local Storage to set items for other components
             } else {
                 console.error('Login failed');
-                // Handle login failure
             }
         } catch (error) {
             console.error('Error during login:', error.message);

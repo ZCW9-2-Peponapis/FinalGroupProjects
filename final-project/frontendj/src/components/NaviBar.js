@@ -4,7 +4,7 @@ function NaviBar() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     useEffect(() => {
-        // Check user login status here (use your authentication logic)
+        // Check user login status here, login and register does not appear
         const userLoggedIn = localStorage.getItem('userInfo') !== null;
         setIsLoggedIn(userLoggedIn);
     }, []);

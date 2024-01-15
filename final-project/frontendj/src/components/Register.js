@@ -9,7 +9,7 @@ const Register = () => {
     const [registrationSuccess, setRegistrationSuccess] = useState(false);
 
     useEffect(() => {
-        // Check user login status here (use your authentication logic)
+        // Check user login status here
         const userLoggedIn = localStorage.getItem('userInfo') !== null;
         setIsLoggedIn(userLoggedIn);
     }, []);
@@ -25,7 +25,7 @@ const Register = () => {
 
         try {
             const response = await fetch ('http://localhost:8080/users/register', {
-                method: 'POST',
+                method: 'POST', //Post method to take name, username, and password to MySQL database
                 headers: {
                     'Content-Type' : 'application/json',
                 },
