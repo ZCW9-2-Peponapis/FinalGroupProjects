@@ -1,13 +1,18 @@
 .login-container {
-    text-align: center;
-    max-width: 300px;
-    margin: auto;
-    padding-top: 50px;
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center the content within the container */
+
 }
 
 .input-label {
     display: block;
     margin-bottom: 10px;
+
 }
 
 .login-button {
@@ -15,4 +20,16 @@
     background-color: #a21e1e;
     color: #695050;
     border: none;
+}
+
+.login-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-field {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%; /* Make the input fields take the full width of the parent */
 }

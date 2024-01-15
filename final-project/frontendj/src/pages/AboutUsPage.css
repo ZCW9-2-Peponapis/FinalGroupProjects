@@ -43,7 +43,7 @@ html {
 
 .container {
     margin-top: -20px;
-    padding: 0 8px;
+    padding: 5px 8px;
 }
 
 .container::after, .row::after {

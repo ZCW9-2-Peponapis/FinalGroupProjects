@@ -55,22 +55,26 @@ const Login = ({ onLogin }) => {
     };
 
     return (
-        <div className="login-menu">
+        <div className="login-container">
+
             <input
                 type="text"
                 placeholder="Username"
                 value={userName}
                 onChange={(e) => setUserName(e.target.value)}
-                style={{display: 'block', marginBottom: '10px'}}
-            />
+
+            /><br/>
+
             <input
                 type="password"
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                style={{display: 'block', marginBottom: '10px'}}
+
             />
+            <br/>
             <button onClick={handleLogin}>Login</button>
+
         </div>
 
     );

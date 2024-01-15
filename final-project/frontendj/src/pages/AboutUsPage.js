@@ -50,7 +50,7 @@ function AboutUsPage (){
                     <div className="card">
                         <img src={christy} alt="Christy" style={{width: '100%'}}/>
                         <div className="container">
-                            <h2>Christianne Edgard</h2>
+                            <h2>Christianne (Christy) Edgard</h2>
                             <p className="title">Software Developer</p>
                             <p>US Army Veteran</p>
                             <p>Serving in the PA Army National Guard</p>
@@ -79,10 +79,10 @@ function AboutUsPage (){
                     <div className="card">
                         <img src={jia} alt="Jia" style={{width: '100%'}}/>
                         <div className="container">
-                            <h2>Hyunji Lee</h2>
+                            <h2>Hyunji (Jia) Lee</h2>
                             <p className="title">Software Developer</p>
                             <p>B.A in Psychology</p>
-                            <p>Former emergency medical scribe and assistant manager</p>
+                            <p>Former Emergency Medical Scribe & Assistant Manager </p>
                             <p>hyjialee@gmail.com</p>
                             <p>
                                 <a href='https://github.com/hyunjialee/'

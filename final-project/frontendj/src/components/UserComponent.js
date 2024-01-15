@@ -40,12 +40,6 @@ const UserComponent = () => {
 
     };
 
-    const handleRegister = () => {
-        setShowRegister(!showRegister);
-        setShowLoginMenu(false); // Close the login menu when switching to register
-
-    };
-
     return (
         <div className="navbar">
             {/* Your other navbar elements */}

@@ -3,8 +3,9 @@ import Register from "../components/Register";
 
 function RegisterPage() {
     return (
-        <div>
+        <div><h1>
                 <Register/>
+        </h1>
         </div>
 
     );
