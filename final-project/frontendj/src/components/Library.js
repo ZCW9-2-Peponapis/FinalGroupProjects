@@ -117,12 +117,68 @@ const Library = ({ urlPath, page }) => {
             setDocuments(data); // save the data into our variable documents
         });
     }, []);
+    
+      
+    
+
+    const [sortedDocuments, setSortedDocuments] = useState(documents);
+    const sortByTitle = () => {
+        const sortedByTitle= [...sortedDocuments].sort((a, b) => {
+          //return new Date(b.modificationDate) - new Date(a.modificationDate);
+        });
+
+       
+          // fetch request to our backend to get documents
+          fetch('http://localhost:8080/document/getsorted', {
+            method: 'GET',
+        }).then((res) => {
+            return res.json(); // returning the response as a json... idk what this does
+        }).then((data) => { // get the data from the response
+            //console.log(data);
+            setDocuments(data); // save the data into our variable documents
+        });
+ 
+         setSortedDocuments(sortedByTitle);
+      };
+    
+
+
+
+      const sortByDate = () => {
+        const sortedByDate= [...sortedDocuments].sort((a, b) => {
+          return a.title.localeCompare(b.title);
+        });
+
+        
+            // fetch request to our backend to get documents
+            fetch('http://localhost:8080/document/getAll', {
+              method: 'GET',
+          }).then((res) => {
+              console.log("After fetch");
+              console.log(res);
+              return res.json(); // returning the response as a json... idk what this does
+          }).then((data) => { // get the data from the response
+              console.log(data);
+              setDocuments(data); // save the data into our variable documents
+          });
+     
+
+          setSortedDocuments(sortedByDate);
+      };
+
+
 
 
     return (
         <>
 
             <p></p>
+            <div>
+      <button onClick={sortByDate}>Sort by Date
+      </button>
+      <button onClick={sortByTitle}>Sort by Title
+      </button>
+
 
             <div className='Library'>
                 {/* put create here */}
@@ -130,8 +186,16 @@ const Library = ({ urlPath, page }) => {
                 {documents.map((doc) => { // for every doc in documents,
                     return <><Document {...doc} /></> // make a document component & pass in doc's data to it
                 })}
-            </div>
-        </>
+             
+      
+     {/* {sortedDocuments.map((doc) => (
+        <Doc key={doc.id} docDetails={doc} />
+      ))} */
+      }
+    </div>
+    
+
+         </div></>
     )
 };
 
