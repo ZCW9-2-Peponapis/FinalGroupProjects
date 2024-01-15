@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './Library.css';
 import { useNavigate } from 'react-router-dom';
 import CreateDocumentIcon from "./CreateDocumentIcon";
+import Cookies from 'js-cookie';
 
 function Document({ ...docDetails }) {
     // formatting date from api to Day Month, Year (i.e. 4 January, 2024)
@@ -11,6 +12,7 @@ function Document({ ...docDetails }) {
         month: "long",
         year: "numeric"
     })
+    const [createClicked, setCreateClicked] = useState(false);
 
     // LOOK AT THIS LATER for passing doc id to the editor/view page
     // https://stackoverflow.com/questions/72004170/how-to-pass-id-in-route-react
@@ -21,15 +23,45 @@ function Document({ ...docDetails }) {
         navigate(path);
     }
 
+    // resource: https://stackoverflow.com/questions/2385113/howto-div-with-onclick-inside-another-div-with-onclick-javascript
     const confirmDeletion = (e) =>{
         // this is to stop react from doing the onClick event for the 
         // document (routeToDocView) & only do this onClick for the delete button
         e.stopPropagation(); 
-        console.log("pressed the delete button to-be")
-        // open up a menu asking if they're sure (like the create menu)
-        // if they hit yes, call the backend with docDetails.id
-            // refresh window
-        // if no, close the menu
+        console.log("pressed the delete button")
+        setCreateClicked(true);
+
+    }
+
+    // setting createClicked to false to make the overlay + 
+    // delete confirmation menu go away. works when user hits no or 
+    // out of the menu
+    const handleButtonclick = () => {
+        if(createClicked){
+            setCreateClicked(false)
+        }
+    }
+
+    // the delete request
+    const handleSubmit = () => {
+        const token = `Bearer ` + Cookies.get('token');
+        // fetch request to our backend to get documents
+        fetch('http://localhost:8080/document/delete/' + docDetails.id, {
+            method: 'DELETE',
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: token,
+            },
+        }).then((res) => {
+            console.log("successfully deleted doc!")
+            // refresh to update docs displayed
+            window.location.reload();
+            return res.json(); // returning the response as a json... idk what this does
+        }).catch((e) => {
+            console.log('Error: ' + e);
+        });
+        
+        
     }
 
 
@@ -38,24 +70,8 @@ function Document({ ...docDetails }) {
             <div className="card" onClick={() => routeToDocumentView()}>
                 <div className="img">
                     {localStorage.getItem('userId') == docDetails.authorId && <div className="save" onClick={(event) => confirmDeletion(event)}>
-                        {/* <svg className="svg" width="683" height="683" viewBox="0 0 683 683" fill="none" xmlns="http://www.w3.org/2000/svg">
-                             <g clipPath="url(#clip0_993_25)">
-                                <mask id="mask0_993_25" maskUnits="userSpaceOnUse" x="0" y="0" width="683" height="683">
-                                     <path d="M0 -0.00012207H682.667V682.667H0V-0.00012207Z" fill="white"></path> 
-                                    
-                                </mask>
-                                <g mask="url(#mask0_993_25)">
-                                    <path d="M148.535 19.9999C137.179 19.9999 126.256 24.5092 118.223 32.5532C110.188 40.5866 105.689 51.4799 105.689 62.8439V633.382C105.689 649.556 118.757 662.667 134.931 662.667H135.039C143.715 662.667 151.961 659.218 158.067 653.09C186.451 624.728 270.212 540.966 304.809 506.434C314.449 496.741 327.623 491.289 341.335 491.289C355.045 491.289 368.22 496.741 377.859 506.434C412.563 541.074 496.752 625.242 524.816 653.348C530.813 659.314 538.845 662.667 547.308 662.667C563.697 662.667 576.979 649.395 576.979 633.019V62.8439C576.979 51.4799 572.48 40.5866 564.447 32.5532C556.412 24.5092 545.489 19.9999 534.133 19.9999H148.535Z" stroke="#CED8DE" strokeWidth="40" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"></path>
-                                </g>
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_993_25">
-                                    <rect width="682.667" height="682.667" fill="white"></rect>
-                                </clipPath>
-                            </defs>
-                        </svg> */}
-                        <svg class="trashcan" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 25 24.8" className="icon-trashcan ct-delete">
-                            <g class="trashcan-open">
+                        <svg className="trashcan icon-trashcan ct-delete" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 25 24.8">
+                            <g className="trashcan-open">
                                 <path d="M18.7,24.4H5.9L4.9,7h14.9L18.7,24.4z M7.6,22.6H17l0.8-13.7h-11L7.6,22.6z"></path>
                                 <polygon points="13.6,10.3 13.1,21.2 14.9,21.2 15.4,10.3 "></polygon>
                                 <polygon points="11.5,21.2 11,10.3 9.2,10.3 9.7,21.2 "></polygon>
@@ -66,7 +82,7 @@ function Document({ ...docDetails }) {
              
              M5.2,6.4l0-1L18,2.8l0.3,0.9L5.2,6.4z"></path>
                             </g>
-                            <g class="trashcan-closed">
+                            <g className="trashcan-closed">
                                 <path d="M6.8,8.8h11L17,22.6
              H7.6L6.8,8.8z 
              M4.9,7l1,17.4h12.8
@@ -96,6 +112,15 @@ function Document({ ...docDetails }) {
                     <p className="p"> Modified: {formattedDate} </p>
                 </div>
             </div>
+
+            {createClicked && 
+            <>
+            <div className="overlay" onClick={handleButtonclick}></div>
+            <div className="delete-confirmation">
+                    <h5>Are you sure you want to delete '{docDetails.title}'?</h5>
+                    <span><button className='no-delete' onClick={handleButtonclick}>No</button><button className='yes-delete' onClick={handleSubmit}>Yes</button></span>    
+            </div>
+            </>}
         </>
     )
 }
