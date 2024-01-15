@@ -54,13 +54,14 @@ function Document({ ...docDetails }) {
             },
         }).then((res) => {
             console.log("successfully deleted doc!")
+            // refresh to update docs displayed
+            window.location.reload();
             return res.json(); // returning the response as a json... idk what this does
         }).catch((e) => {
             console.log('Error: ' + e);
         });
         
-        // refresh to update docs displayed
-        window.location.reload();
+        
     }
 
 
