@@ -28,8 +28,6 @@ public class UserEntity {
     @OneToMany
     private List<Folder> folders;
 
-    // Commented out due to not having other entities and other getters/setters
-
     public UserEntity() {
     }
 
@@ -37,8 +35,6 @@ public class UserEntity {
         this.name = name;
         this.userName = userName;
         this.password = password;
-//        this.documents = new ArrayList<>();
-//        this.folders = new ArrayList<>();
     }
 
     public int getUserId() {

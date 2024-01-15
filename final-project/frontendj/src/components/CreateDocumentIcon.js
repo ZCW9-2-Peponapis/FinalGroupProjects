@@ -54,7 +54,7 @@ const CreateDocumentIcon = ({page}) => {
 
             console.log("IM HERE");
             const response = await fetch('http://localhost:8080/document/create', {
-                method: 'POST',
+                method: 'POST', // Post method to create new document with user id along with title and body
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: 'Bearer '+Cookies.get('token'),
@@ -62,6 +62,8 @@ const CreateDocumentIcon = ({page}) => {
                 body: JSON.stringify(document)
 
             });
+
+            refreshPage();
 
 
 

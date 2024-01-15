@@ -9,7 +9,7 @@ const Register = () => {
     const [registrationSuccess, setRegistrationSuccess] = useState(false);
 
     useEffect(() => {
-        // Check user login status here (use your authentication logic)
+        // Check user login status here
         const userLoggedIn = localStorage.getItem('userInfo') !== null;
         setIsLoggedIn(userLoggedIn);
     }, []);
@@ -25,7 +25,7 @@ const Register = () => {
 
         try {
             const response = await fetch ('http://localhost:8080/users/register', {
-                method: 'POST',
+                method: 'POST', //Post method to take name, username, and password to MySQL database
                 headers: {
                     'Content-Type' : 'application/json',
                 },
@@ -50,16 +50,14 @@ const Register = () => {
                 <p>Registration successful! You can now log in.</p>
             ) : (
                 <>
-                    <label>Name:</label>
-                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                    <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
                     <br />
-                    <label>Username:</label>
-                    <input type="text" value={userName} onChange={(e) => setUserName(e.target.value)} />
+                    <input type="text" placeholder="Username" value={userName} onChange={(e) => setUserName(e.target.value)} />
                     <br />
-                    <label>Password:</label>
-                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                     <br />
-                    <button onClick={handleRegister}>Register</button>
+                    <p><button onClick={handleRegister}>Register</button></p>
+
                 </>
             )}
         </div>

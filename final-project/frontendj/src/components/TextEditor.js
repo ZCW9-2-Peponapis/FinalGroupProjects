@@ -3,6 +3,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'; // Import the styles
 import Cookies from 'js-cookie';
 import html2pdf from 'html2pdf.js';
+import './TextEditor.css';
 
 
 const TextEditor = (id) => {
@@ -66,7 +67,7 @@ const TextEditor = (id) => {
 
     };
 
-    // Define a custom toolbar
+    // Custom toolbar for users to use
     const modules = {
         toolbar: [
             [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
@@ -77,7 +78,7 @@ const TextEditor = (id) => {
         ],
     };
 
-    // Define the formats
+    // Formats for Text Editor
     const formats = [
         'header',
         'bold',
@@ -115,15 +116,15 @@ const TextEditor = (id) => {
     }
 
     return (
-        <div class="editor" style={{
+        <div className="editor-main" style={{
             position: 'absolute', left: '50%', top: '25%',
             transform: 'translate(-50%, -5%)'
         }}>
             <h1>Text Editor</h1>
             <h2>{title}</h2>
             <button id="save-btn" onClick={handleSave}>Save</button>
-            <button id="export-pdf-btn" onClick={handleExportPDF}>Export as PDF</button>
-            <button id="export-pdf-btn" onClick={handleClear}>Clear</button>
+            <button id="save-btn" onClick={handleExportPDF}>Export as PDF</button>
+            <button id="save-btn" onClick={handleClear}>Clear</button>
             <ReactQuill placeholder="Start typing here..."
                         id='editor'
                         readOnly={!canEdit}

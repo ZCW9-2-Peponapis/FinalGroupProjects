@@ -2,7 +2,18 @@
    position: absolute;
 }
 
+
+.editor-main{
+    background: #d9d9d9;
+}
+
+
 #save-btn:hover {
-    margin: 50px;
     cursor:pointer;
+}
+
+#save-btn{
+    margin: 10px;
+    border-radius: 3px;
+    padding: 10px;
 }

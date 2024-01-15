@@ -79,10 +79,4 @@ public class UserController {
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
-
-    /** Method for users to get all documents created by user
-     * May need to implement later as need */
-
-    // @GetMapping for method type List<Documents> getAllDocuments();
-
 }

@@ -4,13 +4,12 @@ import Login from "../components/Login";
 
 function LoginPage() {
     return (
-        <div className="App">
-            <header className="App-header">
+        <div className="login-container" style={{ padding: '90px' }}>
+            <header className="login-menu">
 
-                <h1>This is my login.</h1>
+                <h1>Login</h1>
 
                 <Login/>
-
             </header>
         </div>
 

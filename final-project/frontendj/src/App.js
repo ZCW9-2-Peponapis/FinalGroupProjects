@@ -34,10 +34,11 @@ function App()  {
                   target="_blank"
                   rel="noopener noreferrer"
               >
-                  Zip Docs
+                  ZipDocs
                   </a>
 
           </header>
+
 
           <NaviBar/>
 

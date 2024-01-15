@@ -4,18 +4,21 @@
     background-color: #333;
     font-family: Arial;
     display: flex; /* Use flexbox to center the items */
-    justify-content: left; /* Center items horizontally */
+    justify-content: center; /* Center items horizontally */
     align-items: center; /* Center items vertically */
-    padding-top: 15px;
+    padding-top: 50px;
+    margin-top: -40px;
+    padding-bottom: 10px;
+    margin-bottom: -48px;
 }
 
 /* Links inside the navbar */
 .navbar a {
     float: left;
-    font-size: 16px;
+    font-size: 20px;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 14px 25px;
     text-decoration: none;
 }
 
