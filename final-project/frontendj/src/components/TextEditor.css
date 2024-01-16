@@ -22,6 +22,7 @@
 }
 
 #save-btn{
+
     position: relative;
     background: #797070;
     color: #fff;
@@ -62,3 +63,5 @@
 .ql-editor strong{
     font-weight: 800;
 }
+
+  
