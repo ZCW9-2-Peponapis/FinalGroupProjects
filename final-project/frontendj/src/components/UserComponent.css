@@ -11,6 +11,7 @@
 .dropdown-container {
     display: inline-block;
     margin-right: 10px; /* Add margin to create space between the icon and other elements */
+    z-index:1;
 }
 
 .user-icon {
