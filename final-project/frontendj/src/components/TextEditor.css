@@ -2,13 +2,12 @@
 
 .editor{
    position: absolute;
-}
 
+}
 
 .editor-main{
     background: #d9d9d9;
 }
-
 
 #save-btn:hover {
     cursor:pointer;
@@ -50,7 +49,6 @@
     }
 }
 
-
 .ql-editor  {
     font-size: 22px;
 }
@@ -64,26 +62,27 @@
     font-weight: 800;
 }
 
-/* svg{
-    height:30px;
-    transform: scale(2,2);
-    margin-left:20px;
-} */
-
-/* .ql-toolbar.ql-snow .ql-formats{
-    margin-right: 15px;
-} */
-
-/* .ql-snow .ql-picker-label{
-    margin-left:-30px;
-    width:100%;
-} */
-
+/* This is to make toolbar buttons bigger */
 .ql-toolbar {
     margin-top: 20px;
     margin-left: 380px;
     margin-bottom: 20px;
     width: 720px;
-    transform: scale(2,2);
+    transform: scale(2,2); 
 }
 
+/* These next 3 are to have the menu options above the editor */
+.ql-options-picker{
+    position: relative;
+    z-index: 1;
+}
+
+.ql-container.ql-snow{
+    position: relative;
+    z-index: -1;
+}
+
+#editor.quill {
+    position: relative;
+    z-index: -1;
+}
