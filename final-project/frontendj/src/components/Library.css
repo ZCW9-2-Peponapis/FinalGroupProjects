@@ -201,3 +201,22 @@ path, polygon {
 .sort-btn {
   margin-top:90px;
 }
+
+.sort-date-button {
+  font-size: 16px;
+  padding: 10px;
+  background: linear-gradient(45deg, #e8e5e5, #e06f91, #ad92ff);
+  margin-top: 90px;
+  margin-left: 1000px;
+  margin-Right: 90px;
+
+}
+
+
+.sort-title-button {
+  font-size: 16px;
+  padding: 10px;
+  background: linear-gradient(45deg, #e8e5e5, #e06f91, #ad92ff);
+  margin-top: 90px;
+  margin-right: 100px;
+}
