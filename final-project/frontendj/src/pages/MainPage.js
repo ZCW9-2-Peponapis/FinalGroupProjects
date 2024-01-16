@@ -2,7 +2,7 @@
 import CreateDocumentIcon from "../components/CreateDocumentIcon";
 import { Outlet } from "react-router-dom";
 import Library from "../components/Library";
-
+import Footer from "../components/Footer";
 import SearchBar from "../components/Searchbar";
 
 
@@ -26,6 +26,10 @@ function MainPage() {
 
 
             </header>
+            <footer>
+                <Footer></Footer>
+                
+                </footer>
         </div>
         </>
     );

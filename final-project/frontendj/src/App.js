@@ -41,11 +41,12 @@ function App() {
 
             </header>
 
-            
+       
             <NaviBar />
             <UserComponent />
             <RoutePath />
-            <Footer />
+            
+        
         </div>
 
 

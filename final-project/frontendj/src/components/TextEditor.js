@@ -4,6 +4,7 @@ import 'react-quill/dist/quill.snow.css'; // Import the styles
 import Cookies from 'js-cookie';
 import html2pdf from 'html2pdf.js';
 import './TextEditor.css';
+import Footer from './Footer';
 
 
 const TextEditor = (id) => {
@@ -142,7 +143,14 @@ const TextEditor = (id) => {
             {/* <button onClick={() => setReadOnly(!readOnly)}>
                 {readOnly ? 'Enable Editing' : 'Disable Editing'}
             </button> */}
+
+                <footer>
+                <Footer></Footer>
+                 </footer>
+            
         </div>
+
+    
     );
 };
 
