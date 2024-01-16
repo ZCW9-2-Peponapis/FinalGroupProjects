@@ -199,12 +199,9 @@ const Library = ({ urlPath, page }) => {
 
             <p></p>
             <div>
-<<<<<<< HEAD
-      <button className="sort-btn" onClick={sortByDate}>Sort by Date
-=======
+      
       <button style={{ fontSize: '9px', padding: '10px', 
         background: 'linear-gradient(45deg, #e8e5e5, #e06f91, #ad92ff)',marginTop: '80px',}} onClick={sortByDate}>Sort by Date
->>>>>>> fb84b51 (Footer done)
       </button>
       <button style={{ fontSize: '9px', padding: '10px', 
         background: 'linear-gradient(45deg, #e8e5e5, #e06f91, #ad92ff)',marginTop: '80px',}} onClick={sortByTitle}>Sort by Title
