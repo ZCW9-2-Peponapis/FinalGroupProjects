@@ -200,12 +200,10 @@ const Library = ({ urlPath, page }) => {
             <p></p>
             <div>
       
-      <button style={{ fontSize: '16px', padding: '10px', 
-        background: 'linear-gradient(45deg, #e8e5e5, #e06f91, #ad92ff)',marginTop: '80px', marginRight: '40px', }} onClick={sortByDate}>Sort by Date
-      </button>
-      <button style={{ fontSize: '16px', padding: '10px', 
-        background: 'linear-gradient(45deg, #e8e5e5, #e06f91, #ad92ff)',marginTop: '80px',}} onClick={sortByTitle}>Sort by Title
-      </button>
+            <button className="sort-date-button" onClick={sortByDate}>Sort by Date</button>
+
+      <button className="sort-title-button" onClick={sortByTitle}>Sort by Title</button>
+
 
 
             <div className='Library'>
