@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=YourCustomFont&display=swap');
+
 .editor{
    position: absolute;
 }
@@ -10,10 +12,42 @@
 
 #save-btn:hover {
     cursor:pointer;
+    letter-spacing: 0.2rem;
+    padding: 1.1rem 3.1rem;
+    background: var;
+    color: black;
+    /* box-shadow: 0 0 35px var(--clr); */
+    animation: box 3s infinite;
+
 }
 
 #save-btn{
-    margin: 10px;
-    border-radius: 3px;
-    padding: 10px;
+    position: relative;
+    background: #797070;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: none;
+    letter-spacing: 0.1rem;
+    font-size: 1rem;
+    padding: 1rem 3rem;
+    transition: 0.2s;
 }
+
+@keyframes box {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 35px
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 35px
+    }
+}
+
+
+

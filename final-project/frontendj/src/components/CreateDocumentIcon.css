@@ -86,15 +86,30 @@
 }
 
 .btn:hover{
-    background: darkgreen;
-    transform: scale(1.05);
+    background: #55bd55;
+    animation: box 3s infinite;
 
 }
 
 .btncancel:hover{
-    background: darkred;
-    transform: scale(1.05);
+    background: #de4949;
+    animation: box 3s infinite;
 
+}
+
+@keyframes box {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 35px
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 35px
+    }
 }
 
 

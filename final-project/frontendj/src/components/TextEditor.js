@@ -71,7 +71,10 @@ const TextEditor = (id) => {
     const modules = {
         toolbar: [
             [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+            [{ 'color': [] }, { 'background': [] }], // Added background and color
+            [{ 'font': [], }],
             ['bold', 'italic', 'underline', 'strike'],
+            [{ 'align': [] }],
             [{ 'list': 'ordered' }, { 'list': 'bullet' }],
             ['link', 'image', 'video'],
             ['clean'],
@@ -81,21 +84,25 @@ const TextEditor = (id) => {
     // Formats for Text Editor
     const formats = [
         'header',
+        'color',
+        'background',
+        'font',
         'bold',
         'italic',
         'underline',
         'strike',
+        'align',
         'list',
         'bullet',
         'link',
         'image',
         'video',
-        'clean'
+        'clean',
     ];
 
     // Set default text color to black
     const styles = {
-        color: 'black',
+
     };
 
     const handleExportPDF = () => {
