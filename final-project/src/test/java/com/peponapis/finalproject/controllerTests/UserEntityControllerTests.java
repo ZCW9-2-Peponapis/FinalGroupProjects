@@ -2,6 +2,7 @@ package com.peponapis.finalproject.controllerTests;
 
 import com.peponapis.finalproject.controller.UserController;
 import com.peponapis.finalproject.model.UserEntity;
+import com.peponapis.finalproject.security.JWTGenerator;
 import com.peponapis.finalproject.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,9 @@ public class UserEntityControllerTests {
 
     @MockBean
     private AuthenticationManager authenticationManager;
+
+    @MockBean
+    private JWTGenerator jwtGenerator;
 
     @MockBean
     private UserService userService;
