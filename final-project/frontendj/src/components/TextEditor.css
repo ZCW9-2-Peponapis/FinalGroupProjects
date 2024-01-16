@@ -52,7 +52,7 @@
 
 
 .ql-editor  {
-    font-size: 18px;
+    font-size: 22px;
 }
 
 .ql-picker.ql-size .ql-picker-item[data-value=false] {
@@ -64,4 +64,26 @@
     font-weight: 800;
 }
 
-  
+/* svg{
+    height:30px;
+    transform: scale(2,2);
+    margin-left:20px;
+} */
+
+/* .ql-toolbar.ql-snow .ql-formats{
+    margin-right: 15px;
+} */
+
+/* .ql-snow .ql-picker-label{
+    margin-left:-30px;
+    width:100%;
+} */
+
+.ql-toolbar {
+    margin-top: 20px;
+    margin-left: 380px;
+    margin-bottom: 20px;
+    width: 720px;
+    transform: scale(2,2);
+}
+
