@@ -103,6 +103,7 @@ const TextEditor = (id) => {
     // Set default text color to black
     const styles = {
 
+        color: 'black',
     };
 
     const handleExportPDF = () => {
@@ -139,7 +140,7 @@ const TextEditor = (id) => {
                         onChange={handleChange}
                         modules={modules}
                         formats={formats}
-                        style={{height: '900px', width: '1000px', ...styles}}
+                        style={{height: '900px', width: '1000px'}}
             />
             <div>
                 {/* <p>Content:</p>

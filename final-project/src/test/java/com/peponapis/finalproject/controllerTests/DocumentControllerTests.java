@@ -15,6 +15,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
@@ -22,15 +23,17 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import javax.print.Doc;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@WebMvcTest(DocumentController.class)
+@WebMvcTest(value = DocumentController.class, excludeAutoConfiguration = {SecurityAutoConfiguration.class})
 public class DocumentControllerTests {
 
     @Autowired
@@ -53,10 +56,17 @@ public class DocumentControllerTests {
     @Test
     public void testDocumentControllerViewAllDocuments() throws Exception {
         // given
-        List<Document> documentList = Arrays.asList(new Document("Test1", "Body1", 123), new Document("Test2", "Body2", 321));
-        List<DocumentDTO> list = Mockito.mock();
+        DocumentDTO dto1 = Mockito.mock(DocumentDTO.class);
+        Document doc1 = Mockito.mock(Document.class);
+        List<DocumentDTO> list = new ArrayList<>();
+        list.add(dto1);
+        UserEntity user = Mockito.mock(UserEntity.class);
+
         // when
         when(this.documentService.getAllDocuments()).thenReturn(list);
+        when(doc1.getUser()).thenReturn(user);
+        when(user.getUserId()).thenReturn(1);
+
 
         // assert
         this.mockMvc.perform(get("/document/getAll"))
@@ -85,15 +95,18 @@ public class DocumentControllerTests {
     @Test
     public void testDocumentControllerSaveDocument() throws Exception {
         // given
-        Document document = new Document("Title1", "Body1", 123);
-        DocumentDTO dto = new DocumentDTO(document);
+        Document document = Mockito.mock(Document.class);
+        DocumentDTO dto = Mockito.mock(DocumentDTO.class);
         String requestBody = "{\"id\":1, \"title\":\"Title1\", \"body\":\"Body1\", \"userId\":123}";
+        UserEntity user = Mockito.mock(UserEntity.class);
 
         // when
         when(this.documentService.updateDocument(dto)).thenReturn(dto);
+        when(document.getUser()).thenReturn(user);
+        when(user.getUserId()).thenReturn(1);
 
         // assert
-        this.mockMvc.perform(patch("/document/update")
+        this.mockMvc.perform(put("/document/update")
                         .contentType("application/json")
                         .content(requestBody))
                 .andExpect(status().isOk());
@@ -103,8 +116,8 @@ public class DocumentControllerTests {
     @Test
     public void testDocumentControllerCreateDocument() throws Exception {
         // given
-        Document document = new Document("Title1", "Body1", 123);
-        DocumentDTO dto = new DocumentDTO(document);
+        Document document = Mockito.mock(Document.class);
+        DocumentDTO dto = Mockito.mock(DocumentDTO.class);
         String requestBody = "{\"id\":1, \"title\":\"Title1\", \"body\":\"Body1\", \"userId\":123}";
         // when
         when(this.documentService.createDocument(document)).thenReturn(dto);
@@ -119,11 +132,13 @@ public class DocumentControllerTests {
     @Test
     public void testDocumentControllerSearchDocument() throws Exception {
         // given
-        List<Document> documentList = Arrays.asList(new Document("Test1", "Body1", 123), new Document("Test2", "Body2", 321));
+        DocumentDTO dto1 = Mockito.mock(DocumentDTO.class);
         String filter = "test";
+        List<DocumentDTO> dtoList = Mockito.anyList();
+        dtoList.add(dto1);
 
         //when
-        when(this.documentService.searchDocuments(filter)).thenReturn(documentList);
+        when(this.documentService.searchDocuments(filter)).thenReturn(dtoList);
 
         // assert
         this.mockMvc.perform(get("/document/search")

@@ -50,4 +50,15 @@
 }
 
 
+.ql-editor  {
+    font-size: 18px;
+}
 
+.ql-picker.ql-size .ql-picker-item[data-value=false] {
+    font-weight: 200 !important;
+
+}
+
+.ql-editor strong{
+    font-weight: 800;
+}

@@ -199,7 +199,7 @@ const Library = ({ urlPath, page }) => {
 
             <p></p>
             <div>
-      <button onClick={sortByDate}>Sort by Date
+      <button className="sort-btn" onClick={sortByDate}>Sort by Date
       </button>
       <button onClick={sortByTitle}>Sort by Title
       </button>
