@@ -36,7 +36,7 @@ function App() {
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    ZipDocs
+                    <b>ZipDocs</b>
                 </a>
 
             </header>
