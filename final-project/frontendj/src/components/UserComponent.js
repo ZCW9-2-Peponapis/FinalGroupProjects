@@ -42,7 +42,6 @@ const UserComponent = () => {
 
     return (
         <div className="navbar">
-            {/* Your other navbar elements */}
             <div className={`dropdown-container ${showLoginMenu ? 'open' : ''}`}>
                 {/* Display user session information */}
                 <img
