@@ -61,8 +61,11 @@ const RoutePath = () => {
                     <Route path="/edit" exact element={<CreateDocument/>} />
                     <Route path="/search/:search" exact element={<SearchPage/>} />
                 </Routes>
+
             </div>
         // </Router> 
+
+
     );
 };
 
