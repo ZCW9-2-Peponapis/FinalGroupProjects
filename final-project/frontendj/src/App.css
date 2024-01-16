@@ -12,6 +12,12 @@
   transition: transform 0.3s; /* Add smooth transition for better user experience */
 }
 
+@media (min-width:1500px){
+  .App-logo {
+    height: 11.5%;
+  }
+}
+
 .App-logo:hover {
   transform: scale(1.1); /* Increase the scale to enlarge the image */
 }
@@ -31,6 +37,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: #000000;
+  padding-top:10px;
 }
 
 .App-link {
@@ -48,4 +55,5 @@
     transform: rotate(360deg);
   }
 }
+
 

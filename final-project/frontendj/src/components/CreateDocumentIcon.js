@@ -76,7 +76,7 @@ const CreateDocumentIcon = ({page}) => {
     if(localStorage.getItem('userId') != null && page === "Main"){
         console.log("in if")
         return (
-            <div>
+            <div id="create-btn">
                 {isLoggedIn() ? (
                     <img className="image"
                         src={add}

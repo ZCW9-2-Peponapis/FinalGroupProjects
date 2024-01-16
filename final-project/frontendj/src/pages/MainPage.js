@@ -1,8 +1,6 @@
 
-import CreateDocumentIcon from "../components/CreateDocumentIcon";
-import { Outlet } from "react-router-dom";
 import Library from "../components/Library";
-
+import './MainPage.css'; 
 import SearchBar from "../components/Searchbar";
 
 
@@ -13,19 +11,13 @@ function MainPage() {
 
     return (
         <>
-        <Outlet/>
-        <div className="App">
-            <header className="App-header">
-                
-                
-                <h2>Welcome to ZipDocs</h2>
+        <div className="App" id="library">
+                <h2 id="welcome"><u>Welcome to ZipDocs</u></h2>
                        
                 <SearchBar placeholder="Enter a Keyword"/>
-
-                <Library urlPath={path} page={page}/>
-
-
-            </header>
+           
+                <Library urlPath={path} page={page}/>  
+            
         </div>
         </>
     );

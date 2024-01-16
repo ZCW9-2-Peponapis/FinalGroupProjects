@@ -6,6 +6,18 @@
   margin-left: 100px;
   margin-top: 100px;
 }
+
+/* if the screen is minimum 880px, use this css instead */
+@media (min-width: 1700px){
+  .Library{
+    display:flex;
+    flex-wrap: wrap;
+    width: 90%;
+    align-items: center;
+    margin-left: 170px;
+    margin-top: 100px;
+  }
+}
 .card {
     width: 252px;
     height: 265px;
@@ -183,4 +195,8 @@ path, polygon {
 
 .no-delete {
   background-color: rgb(225, 220, 220);
+}
+
+.sort-btn {
+  margin-top:90px;
 }
