@@ -21,7 +21,7 @@ const TextEditor = (id) => {
     // fetching document from backend
     useEffect(() => {
         // using the id that was passed to TextEditor by the EditorPage to get the right document's info
-        fetch('http://localhost:8080/document/view/'+id.id, {
+        fetch('http://localhost:8080/document/view/' + id.id, {
             method: 'GET',
         }).then((res) => {
             return res.json();
@@ -117,7 +117,7 @@ const TextEditor = (id) => {
     };
 
     const handleClear = () => {
-        if (userId == authorId){  // The user id must match with the author id to clear the document
+        if (userId == authorId) {  // The user id must match with the author id to clear the document
             setContent('');
         } else {
             console.log("Cannot clear, you are not the owner");
@@ -125,40 +125,41 @@ const TextEditor = (id) => {
     }
 
     return (
-        <div className="editor-main" style={{
-            position: 'absolute', left: '50%', top: '25%',
-            transform: 'translate(-50%, -5%)'
-        }}>
-            <h1>Text Editor</h1>
-            <h2>{title}</h2>
-            <button id="save-btn" onClick={handleSave}>Save</button>
-            <button id="save-btn" onClick={handleExportPDF}>Export as PDF</button>
-            <button id="save-btn" onClick={handleClear}>Clear</button>
-            <ReactQuill placeholder="Start typing here..."
-                        id='editor'
-                        readOnly={!canEdit}
-                        value={content}
-                        onChange={handleChange}
-                        modules={modules}
-                        formats={formats}
-                        style={{height: '900px', width: '1000px'}}
-            />
-            <div>
-                {/* <p>Content:</p>
+        <>
+            <div className="editor-main" style={{ height: '900px;',
+                position: 'absolute', left: '50%', top: '25%',
+                transform: 'translate(-50%, -5%)'
+                }}>
+                <h1>Text Editor</h1>
+                <h2>{title}</h2>
+                <button id="save-btn" onClick={handleSave}>Save</button>
+                <button id="save-btn" onClick={handleExportPDF}>Export as PDF</button>
+                <button id="save-btn" onClick={handleClear}>Clear</button>
+                <ReactQuill placeholder="Start typing here..."
+                    id='editor'
+                    readOnly={!canEdit}
+                    value={content}
+                    onChange={handleChange}
+                    modules={modules}
+                    formats={formats}
+                    style={{ height: '900px', width: '1500px' }}
+                />
+                <div>
+                    {/* <p>Content:</p>
                 <div dangerouslySetInnerHTML={{ __html: content }} /> */}
-            </div>
+                </div>
 
-            {/* <button onClick={() => setReadOnly(!readOnly)}>
+                {/* <button onClick={() => setReadOnly(!readOnly)}>
                 {readOnly ? 'Enable Editing' : 'Disable Editing'}
-            </button> */}
-
-                <footer>
-                <Footer></Footer>
-                 </footer>
+                </button> */}
+                <p></p>
+                <Footer id="footer"></Footer>
+            </div>      
             
-        </div>
+            
+          
+        </>
 
-    
     );
 };
 
