@@ -35,13 +35,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(20px + 2vmin);
   color: #000000;
   padding-top:10px;
+
 }
 
 .App-link {
-  background: linear-gradient(to right, #1756d5, #a738ea);
+  background: linear-gradient(to right, #fcfcfc, #e6d8f3);
   background-clip: text;
   color: transparent;
   display: inline-block;
@@ -55,9 +56,7 @@
     transform: rotate(360deg);
   }
 
-
-  
-
 }
+
 
 
