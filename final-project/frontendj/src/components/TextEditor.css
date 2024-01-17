@@ -65,10 +65,10 @@
 /* This is to make toolbar buttons bigger */
 .ql-toolbar {
     margin-top: 20px;
-    margin-left: 380px;
+    margin-left: 340px;
     margin-bottom: 20px;
-    width: 720px;
-    transform: scale(2,2); 
+    width: 710px;
+    transform: scale(1.9,1.9); 
 }
 
 /* These next 3 are to have the menu options above the editor */
