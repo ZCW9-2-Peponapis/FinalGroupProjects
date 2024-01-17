@@ -36,7 +36,7 @@ function App() {
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <b>ZipDocs</b>
+                    <b style={{fontSize:'50px'}}>ZipDocs</b>
                 </a>
 
             </header>

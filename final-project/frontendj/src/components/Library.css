@@ -208,7 +208,7 @@ path, polygon {
   background: linear-gradient(45deg, #e8e5e5, #e06f91, #ad92ff);
   position: relative;
   top: 45px;
-  left: 360px;
+  left: 550px;
 
 
 }
@@ -220,5 +220,5 @@ path, polygon {
   background: linear-gradient(45deg, #e8e5e5, #e06f91, #ad92ff);
   position: relative;
   top: 45px;
-  left: 100px;
+  left: 300px;
 }

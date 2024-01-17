@@ -1,7 +1,7 @@
 .search{
   position: relative;
   top: 40px;
-  left: -500px;
+  left: -400px;
 }
 
 .searchInputs {
@@ -9,10 +9,8 @@
   justify-content: flex-start;
   align-items: center;
   margin-top: 50px;
-    position: relative;
-    top: 40px;
-    left: -500px;
-
+   
+ 
 }
 
 .parent-container {
@@ -44,7 +42,7 @@
 .searchIcon{
   font-size: 16px;
   padding: 10px;
-  background: linear-gradient(45deg, #e8e5e5, #e06f91, #ad92ff);
+ 
 }
 
   
