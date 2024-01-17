@@ -44,9 +44,9 @@ function SearchBar({ placeholder, dataResult }) {
                         onChange={inputChange}
                     />
                     <div className="searchIcon">
-                        <button className="button-styling" onClick={handleButtonclick}>
-                            Search
-                        </button>
+                        <button style={{ fontSize: '16px', padding: '10px', 
+        background: 'linear-gradient(45deg, #e8e5e5, #e06f91, #ad92ff)',marginTop: '-10px',marginLeft:'-10px'}} onClick={handleButtonclick}> search
+        </button>
                     </div>
 
                 </div>
