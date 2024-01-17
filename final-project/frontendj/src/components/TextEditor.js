@@ -130,8 +130,8 @@ const TextEditor = (id) => {
                 position: 'absolute', left: '50%', top: '30%',
                 transform: 'translate(-50%, -5%)'
                 }}>
-                <h1>Text Editor</h1>
-                <h2>{title}</h2>
+                <h1>{title}</h1>
+                {/* <h2>{title}</h2> */}
                 <button id="save-btn" onClick={handleSave}>Save</button>
                 <button id="save-btn" onClick={handleExportPDF}>Export as PDF</button>
                 <button id="save-btn" onClick={handleClear}>Clear</button>
