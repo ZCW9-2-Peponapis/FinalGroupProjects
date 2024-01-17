@@ -15,7 +15,7 @@ function AboutUsPage (){
     return (
         <div className="about-section">
             <h1 style={{fontSize: '25px', marginTop: '-15px'}}>Our Team</h1>
-            <h2 style={{marginBottom: '-30px'}}>Connect through our LinkedIn QR Codes.</h2>
+            <h2 style={{marginBottom: '-30px'}}>Connect through our LinkedIn QR Codes</h2>
 
             <div className="row">
                 <div className="column">

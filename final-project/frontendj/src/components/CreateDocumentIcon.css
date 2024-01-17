@@ -8,6 +8,7 @@
 
 #create-btn {
     margin-right:45px;
+
 }
 
 
@@ -16,6 +17,7 @@
     height: 250px;
     margin-left: 50px;
     margin-right: 15px;
+
 
     transition: transform 0.3s; /* Add smooth transition for better user experience */
 }
@@ -29,7 +31,7 @@
 .form-popup {
      background: linear-gradient(#c2ceec, #8ca5d9);
      position: absolute;
-     top: 50%;
+     top: 35%;
      left: 50%;
      transform: translate(-50%, -50%);
      padding: 10px;
@@ -59,7 +61,8 @@
 
 .form-container{
     align-items: center;
-    padding: 80px;
+    padding: 130px;
+
 
 }
 
