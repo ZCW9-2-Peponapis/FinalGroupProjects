@@ -117,8 +117,8 @@ function Document({ ...docDetails }) {
             <>
             <div className="overlay" onClick={handleButtonclick}></div>
             <div className="delete-confirmation">
-                    <h5>Are you sure you want to delete '{docDetails.title}'?</h5>
-                    <span><button className='no-delete' onClick={handleButtonclick}>No</button><button className='yes-delete' onClick={handleSubmit}>Yes</button></span>    
+                    <h2>Delete the document '{docDetails.title}'?</h2>
+                    <span><button className='yes-delete' onClick={handleSubmit}>Yes</button><button className='no-delete' onClick={handleButtonclick}>No</button></span>
             </div>
             </>}
         </>
