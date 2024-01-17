@@ -127,7 +127,7 @@ const TextEditor = (id) => {
     return (
         <>
             <div className="editor-main" style={{ height: '900px;',
-                position: 'absolute', left: '50%', top: '25%',
+                position: 'absolute', left: '50%', top: '30%',
                 transform: 'translate(-50%, -5%)'
                 }}>
                 <h1>Text Editor</h1>
@@ -142,7 +142,7 @@ const TextEditor = (id) => {
                     onChange={handleChange}
                     modules={modules}
                     formats={formats}
-                    style={{ height: '900px', width: '1500px' }}
+                    style={{ height: '900px', width: '1400px' }}
                 />
                 <div>
                     {/* <p>Content:</p>

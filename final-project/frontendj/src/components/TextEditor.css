@@ -65,9 +65,9 @@
 /* This is to make toolbar buttons bigger */
 .ql-toolbar {
     margin-top: 20px;
-    margin-left: 380px;
+    margin-left: 350px;
     margin-bottom: 20px;
-    width: 720px;
+    width: 710px;
     transform: scale(2,2); 
 }
 
