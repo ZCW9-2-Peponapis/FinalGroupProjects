@@ -4,8 +4,11 @@ import { useNavigate } from "react-router-dom";
 
 function SearchBar({ placeholder, dataResult }) {
 
-    let [docs, setDocs] = useState([]) // sharing state whithin a component
-    let [param, setParam] = useState("") // start at a empty string
+    let [docs, setDocs] = useState([]) // docs vr will store the documents
+    let [param, setParam] = useState("") // param vr will store the search param
+
+    // Fetching documents from the backend when the component mounts
+    // The fetched data is stored in the 'docs' state variable 
     useEffect(() => {
         // fetch request to our backend to get documents
         fetch('http://localhost:8080/document/getAll', {
@@ -19,14 +22,17 @@ function SearchBar({ placeholder, dataResult }) {
         });
     }, []);
 
-
+   // it call when the input field change . It update the sate with the current value
     const inputChange = (event) => {
         setParam(event.target.value)
     }
+     // used to navigate to a different based page when search button is clicked 
     const navigate = useNavigate()
-
+  
+    // Filtering documents based on the search parameter
     const handleButtonclick = () => {
         let result = docs.filter(doc => doc.body.toLowerCase().includes(param.toLowerCase()) || doc.title.toLowerCase().includes(param.toLowerCase())) // filter through array
+        // Encoding the filtered result and the navigating to a new page
         const resultString = encodeURI(JSON.stringify(result))
         console.log(`filter result= `)
         console.log(result)
@@ -34,7 +40,7 @@ function SearchBar({ placeholder, dataResult }) {
         console.log(param)
         navigate(`/search/${param}`)
     }
-
+// jsx code representing the structure of the search bar component
     return (
         <div className="parent-container">
             <div className="search">
