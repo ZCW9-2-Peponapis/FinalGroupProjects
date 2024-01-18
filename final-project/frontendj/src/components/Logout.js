@@ -11,7 +11,6 @@ const Logout = ({ onLogout }) => {
 
     return (
         <div className="logout-component">
-            {/* Your logout component UI here */}
             <button onClick={handleLogoutClick}>Logout</button>
         </div>
     );
